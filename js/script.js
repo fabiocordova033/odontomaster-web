@@ -35,3 +35,26 @@ const nav = document.getElementById("nav-menu");
 toggle.addEventListener("click", () => {
     nav.classList.toggle("active");
 });
+
+
+
+const container = document.querySelector(".testimonial-cards");
+
+setInterval(() => {
+
+    // mover primera tarjeta al final
+    container.appendChild(container.firstElementChild);
+
+    // quitar active a todas
+    document.querySelectorAll(".testimonial").forEach(card => {
+        card.classList.remove("active");
+    });
+
+    // poner active a la del centro
+    const cards = document.querySelectorAll(".testimonial");
+
+    if(cards[1]){
+        cards[1].classList.add("active");
+    }
+
+}, 3000);

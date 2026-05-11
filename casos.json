@@ -1,0 +1,22 @@
+[
+  {
+    "categoria": "Ortodoncia lingual",
+    "imagen": "bracketslingual.jpg"
+  },
+
+  {
+    "categoria": "Endodoncia",
+    "imagen": "conducto.jpg"
+  },
+
+    {
+    "categoria": "Ortodoncia infantil",
+    "imagen": "bracketsinfantil.jpg"
+  },
+
+  {
+    "categoria": "Endodoncia",
+    "imagen": "conducto.jpg"
+  }
+  
+]
