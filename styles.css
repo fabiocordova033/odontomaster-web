@@ -82,6 +82,27 @@ body::before {
         padding: 70px 40px;
     }
 
+    .team-section {
+
+        flex-direction: column;
+    }
+
+    .team-content,
+    .team-image {
+
+        width: 100%;
+    }
+
+    .team-content {
+
+        padding: 70px 50px;
+    }
+
+    .team-image {
+
+        height: 500px;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -241,15 +262,36 @@ body::before {
         text-align: center;
     }
 
-    /* Sección Doctor */
-    .doctor {
-        flex-direction: column;
-        gap: 20px;
+    /* ========================= */
+/* RESPONSIVE MOVIL */
+/* ==========Doctor======= */
+    .team-content {
+
+        padding: 60px 30px;
+
+        align-items: center;
+
         text-align: center;
     }
 
-    .doctor-info {
-        flex-direction: column;
+    .team-content h2 {
+
+        font-size: 42px;
+    }
+
+    .team-content p {
+
+        font-size: 16px;
+    }
+
+    .team-image {
+
+        height: 350px;
+    }
+
+    .btn-staff {
+
+        padding: 14px 35px;
     }
 
     /* Formulario de contacto */
@@ -514,6 +556,8 @@ body::before {
     text-align: center;
 
     padding: 80px;
+
+    backdrop-filter: blur(10px);
 }
 
 
@@ -617,7 +661,7 @@ body::before {
 
 .service-text p {
 
-    font-size: 17px;
+    font-size: 18px;
 
     line-height: 1.7;
 
@@ -696,26 +740,127 @@ body::before {
 }
 
 /* DOCTOR */
-.doctor {
+/* ========================= */
+/* TEAM SECTION */
+/* ========================= */
+
+.team-section {
+
+    width: 100%;
+
+    min-height: 80vh;
+
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 5%;
+
     background: transparent;
 }
 
-.doctor-info {
+
+/* ========================= */
+/* IZQUIERDA */
+/* ========================= */
+
+.team-content {
+
+    width: 50%;
+
+    background: none;
+
+    backdrop-filter: blur(10px);
+
     display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
     align-items: center;
-    gap: 15px;
+
+    padding: 100px;
 }
 
-.doctor-img {
-    width: 70px;
-    height: 70px;
-    background: #ccc;
-    border-radius: 50%;
+
+/* TITULO */
+
+.team-content h2 {
+
+    font-size: 55px;
+
+    margin-bottom: 25px;
+
+    color: #111;
 }
+
+
+/* DESCRIPCION */
+
+.team-content p {
+
+    max-width: 500px;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    margin-bottom: 40px;
+
+    color: #000000;
+}
+
+
+/* BOTON */
+
+.btn-staff {
+
+    padding: 15px 40px;
+
+    border: 2px solid #4a6cff;
+
+    border-radius: 40px;
+
+    text-decoration: none;
+
+    color: #4a6cff;
+
+    font-weight: 600;
+
+    transition: 0.4s ease;
+}
+
+
+/* HOVER BOTON */
+
+.btn-staff:hover {
+
+    transform: scale(1.05);
+}
+
+
+/* ========================= */
+/* DERECHA */
+/* ========================= */
+
+.team-image {
+
+    width: 50%;
+
+    overflow: hidden;
+}
+
+
+/* IMAGEN */
+
+.team-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
 
 /* FORMULARIO */
 .contact-container{
