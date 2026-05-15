@@ -1,22 +1,67 @@
 [
   {
-    "categoria": "Ortodoncia lingual",
+    "categoria": "Ortodoncia en lingual",
     "imagen": "bracketslingual.jpg"
   },
 
   {
-    "categoria": "Endodoncia",
-    "imagen": "conducto.jpg"
+    "categoria": "Ortodoncia infantil",
+    "imagen": "imagenes/ImplantesDentales.jpg"
   },
 
-    {
+  {
     "categoria": "Ortodoncia infantil",
-    "imagen": "bracketsinfantil.jpg"
+    "imagen": "imagenes/ImplantesDentales.jpg"
+  },
+
+  {
+    "categoria": "Ortodoncia infantil",
+    "imagen": "imagenes/ImplantesDentales.jpg"
+  },
+
+  {
+    "categoria": "Ortodoncia infantil",
+    "imagen": "imagenes/ImplantesDentales.jpg"
+  },
+
+  {
+    "categoria": "Ortodoncia infantil",
+    "imagen": "imagenes/ImplantesDentales.jpg"
+  },
+
+  {
+    "categoria": "Ortodoncia infantil",
+    "imagen": "imagenes/ImplantesDentales.jpg"
   },
 
   {
     "categoria": "Endodoncia",
-    "imagen": "conducto.jpg"
-  }
+    "imagen": "imagenes/chichobelo.jpg"
+  },
   
+  {
+    "categoria": "Endodoncia",
+    "imagen": "imagenes/chichobelo.jpg"
+  },
+
+  {
+    "categoria": "Endodoncia",
+    "imagen": "imagenes/chichobelo.jpg"
+  },
+
+  {
+    "categoria": "Endodoncia",
+    "imagen": "imagenes/chichobelo.jpg"
+  },
+
+
+  {
+    "categoria": "Endodoncia",
+    "imagen": "imagenes/chichobelo.jpg"
+  },
+  
+  {
+    "categoria": "Endodoncia",
+    "imagen": "imagenes/chichobelo.jpg"
+  }
 ]
