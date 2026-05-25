@@ -1,0 +1,499 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-image: url("imagenes/Fondomejorado.jpg"); /* tu imagen */
+    background-size: cover;        /* 🔥 ocupa toda la pantalla */
+    background-position: center;   /* centrada */
+    background-repeat: no-repeat;  /* no se repite */
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* oscurece */
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.menu-toggle {
+    display: none;
+    margin-left: auto;
+    font-size: 28px;
+    cursor: pointer;
+}
+.logo img{
+    width: 20px;
+    height: 20px;
+}
+.navbar {
+    display: flex;
+    grid-template-columns: 1fr auto 1fr;
+    background: transparent;
+    color:#ffffff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 5%;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    top:0;
+     background: linear-gradient(
+        to bottom,
+        rgba(69, 111, 250, 1),  /* arriba oscuro */
+        rgba(255, 255, 255, 0)  /* abajo transparente */
+    );
+}
+
+.navbar nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.navbar input {
+    padding: 5px 10px;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-self: end;
+    gap: 8px;
+    color: rgb(255, 255, 255);
+    background-color:skyblue;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: normal;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+    background: white;
+    color: skyblue;
+}
+
+.icon img {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-whatsapp .icon {
+    font-size: 16px;
+}
+
+/* ========================= */
+/* ABOUT TEAM */
+/* ========================= */
+
+.about-team {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 110px 40px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+.about-header {
+
+max-width: 900px;
+
+    margin: 0 auto 120px auto;
+
+    text-align: center;
+
+    padding: 70px 60px;
+
+    border-radius: 35px;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+
+}
+
+.about-subtitle {
+
+    font-size: 18px;
+
+    color: #777;
+
+    display: block;
+
+    margin-bottom: 10px;
+}
+
+.about-header h2 {
+
+    font-size: 70px;
+
+    line-height: 1;
+
+    margin-bottom: 30px;
+}
+
+.about-header p {
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    color: #444;
+}
+
+
+/* ========================= */
+/* TEAM SECTION */
+/* ========================= */
+
+.team-section {
+
+    text-align: center;
+}
+
+.team-mini-title {
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    color: #62c6ff;
+
+    display: block;
+
+    margin-bottom: 20px;
+}
+
+.team-section h3 {
+
+    font-size: 42px;
+
+    margin-bottom: 25px;
+}
+
+.team-description {
+
+    max-width: 850px;
+
+    margin: 0 auto 80px auto;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: #555;
+}
+
+
+/* ========================= */
+/* TEAM CARDS */
+/* ========================= */
+
+.team-cards {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 60px;
+
+    flex-wrap: wrap;
+}
+
+
+/* ========================= */
+/* TEAM CARD */
+/* ========================= */
+
+.team-card {
+
+    width: 320px;
+
+    transition: 0.4s ease;
+}
+
+.team-card:hover {
+
+    transform: translateY(-10px);
+}
+
+
+/* ========================= */
+/* IMAGE */
+/* ========================= */
+
+.team-image {
+
+    width: 320px;
+
+    height: 320px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    margin-bottom: 30px;
+
+    position: relative;
+}
+
+.team-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s ease;
+}
+
+.team-card:hover .team-image img {
+
+    transform: scale(1.08);
+}
+
+
+/* ========================= */
+/* INFO */
+/* ========================= */
+
+.team-location {
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    color: #62c6ff;
+
+    display: block;
+
+    margin-bottom: 15px;
+}
+
+.team-info h4 {
+
+    font-size: 28px;
+
+    margin-bottom: 12px;
+}
+
+.team-info p {
+
+    color: #555;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+}
+
+/* FORMULARIO */
+.contact-container{
+    width: 100%;
+    background: white;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+    padding: 70px 0px;
+    background: transparent;
+}
+
+/* IZQUIERDA */
+.contact-info {
+    width: 40%;
+}
+
+.contact-info h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.label {
+    color: #888;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.btn-map {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 8px 15px;
+    background: #2F80ED;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* DERECHA */
+.contact-form {
+    width: 55%;
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+}
+
+/* FILAS */
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+/* CAMPOS */
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group.full {
+    width: 100%;
+}
+
+/* INPUTS */
+input, select {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    background: #eef1f5;
+}
+
+/* BOTÓN */
+.btn-submit {
+    margin-top: 10px;
+    padding: 12px 30px;
+    background: black;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+/* ========================= */
+/* RESPONSIVE TABLET */
+/* ========================= */
+
+@media (max-width: 1024px) {
+
+    .about-header h2 {
+
+        font-size: 55px;
+    }
+
+    .team-cards {
+
+        gap: 40px;
+    }
+
+    .team-card {
+
+        width: 280px;
+    }
+
+    .team-image {
+
+        width: 280px;
+
+        height: 280px;
+    }
+}
+
+
+/* ========================= */
+/* RESPONSIVE MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .about-team {
+
+        padding: 80px 25px;
+    }
+
+    .about-header {
+
+        margin-bottom: 90px;
+    }
+
+    .about-header h2 {
+
+        font-size: 45px;
+    }
+
+    .about-header p {
+
+        font-size: 17px;
+    }
+
+    .team-section h3 {
+
+        font-size: 34px;
+    }
+
+    .team-description {
+
+        font-size: 16px;
+
+        margin-bottom: 60px;
+    }
+
+    .team-cards {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 50px;
+    }
+
+    .team-card {
+
+        width: 100%;
+    }
+
+    .team-image {
+
+        width: 260px;
+
+        height: 260px;
+
+        margin: 0 auto 25px auto;
+    }
+
+    .team-info h4 {
+
+        font-size: 24px;
+    }
+}

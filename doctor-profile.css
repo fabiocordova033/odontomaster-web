@@ -1,0 +1,406 @@
+/* ========================= */
+/* DOCTOR PROFILE */
+/* ========================= */
+
+.doctor-profile {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 110px 70px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 70px;
+
+    flex-wrap: wrap;
+}
+
+
+/* ========================= */
+/* LEFT */
+/* ========================= */
+
+.doctor-left {
+
+    flex: 1;
+
+    min-width: 320px;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+/* IMAGE */
+
+.doctor-image {
+
+    width: 370px;
+
+    height: 470px;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+}
+
+.doctor-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s ease;
+}
+
+.doctor-image:hover img {
+
+    transform: scale(1.04);
+}
+
+
+/* ========================= */
+/* RIGHT */
+/* ========================= */
+
+.doctor-right {
+
+    flex: 1.3;
+
+    min-width: 350px;
+}
+
+
+/* LOCATION */
+
+.doctor-location {
+
+    display: block;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    color: #62c6ff;
+
+    margin-bottom: 18px;
+}
+
+
+/* TITLE */
+
+.doctor-right h1 {
+
+    font-size: 48px;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    margin-bottom: 25px;
+}
+
+
+/* LINE */
+
+.doctor-line {
+
+    width: 70px;
+
+    height: 3px;
+
+    background: #62c6ff;
+
+    margin-bottom: 35px;
+
+    border-radius: 20px;
+}
+
+
+/* DESCRIPTION */
+
+.doctor-description {
+
+    font-size: 18px;
+
+    line-height: 2;
+
+    color: #555;
+}
+
+
+/* ========================= */
+/* STUDIES */
+/* ========================= */
+
+.doctor-studies {
+
+    width: 100%;
+
+    padding: 20px 70px 120px 70px;
+}
+
+
+/* TITLE */
+
+.doctor-studies h2 {
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+    color: #62c6ff;
+
+    margin-bottom: 70px;
+}
+
+
+/* ========================= */
+/* TIMELINE */
+/* ========================= */
+
+.timeline {
+
+    position: relative;
+
+    max-width: 950px;
+}
+
+
+/* VERTICAL LINE */
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 110px;
+
+    top: 0;
+
+    width: 2px;
+
+    height: 100%;
+
+    background: rgba(0,0,0,0.08);
+}
+
+
+/* ITEM */
+
+.timeline-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 40px;
+
+    margin-bottom: 70px;
+
+    position: relative;
+}
+
+
+/* YEAR */
+
+.timeline-year {
+
+    width: 110px;
+
+    background: #34c3df;
+
+    color: white;
+
+    padding: 12px 0;
+
+    text-align: center;
+
+    font-weight: 600;
+
+    position: relative;
+
+    clip-path: polygon(
+        0 0,
+        90% 0,
+        100% 50%,
+        90% 100%,
+        0 100%
+    );
+}
+
+
+/* DOT */
+
+.timeline-dot {
+
+    width: 14px;
+
+    height: 14px;
+
+    background: #34c3df;
+
+    border-radius: 50%;
+
+    margin-top: 14px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* CONTENT */
+
+.timeline-content {
+
+    flex: 1;
+}
+
+.timeline-content h3 {
+
+    font-size: 22px;
+
+    margin-bottom: 12px;
+}
+
+.timeline-content p {
+
+    color: #666;
+
+    line-height: 1.9;
+
+    font-size: 17px;
+}
+
+
+/* ========================= */
+/* RESPONSIVE TABLET */
+/* ========================= */
+
+@media (max-width: 1024px) {
+
+    .doctor-profile {
+
+        padding: 90px 40px;
+
+        gap: 50px;
+    }
+
+    .doctor-right h1 {
+
+        font-size: 40px;
+    }
+
+    .doctor-image {
+
+        width: 320px;
+
+        height: 420px;
+    }
+
+    .doctor-studies {
+
+        padding: 20px 40px 100px 40px;
+    }
+}
+
+
+/* ========================= */
+/* RESPONSIVE MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .doctor-profile {
+
+        padding: 70px 25px;
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .doctor-left,
+    .doctor-right {
+
+        width: 100%;
+    }
+
+    .doctor-image {
+
+        width: 100%;
+
+        max-width: 340px;
+
+        height: 430px;
+    }
+
+    .doctor-right {
+
+        text-align: center;
+    }
+
+    .doctor-right h1 {
+
+        font-size: 34px;
+    }
+
+    .doctor-line {
+
+        margin: 0 auto 30px auto;
+    }
+
+    .doctor-description {
+
+        font-size: 16px;
+
+        line-height: 1.9;
+    }
+
+    .doctor-studies {
+
+        padding: 10px 25px 90px 25px;
+    }
+
+    .timeline::before {
+
+        left: 15px;
+    }
+
+    .timeline-item {
+
+        gap: 20px;
+
+        margin-left: 0;
+    }
+
+    .timeline-year {
+
+        width: 90px;
+
+        font-size: 14px;
+    }
+
+    .timeline-content h3 {
+
+        font-size: 18px;
+    }
+
+    .timeline-content p {
+
+        font-size: 15px;
+    }
+}

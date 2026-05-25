@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Clínica dental en Lima especializada en limpieza, ortodoncia y blanqueamiento dental"
+    />
+    <title>Odontomaster | Clinica Dental</title>
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css"
+/>
+    <link rel="stylesheet" href="team.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="imagenes/logo.png" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="logo">ODONTOMASTER</div>
+      <nav id="nav-menu">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="team.html">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a href="https://wa.me/51910840567" target="_blank" class="btn-whatsapp">
+        <span class="icon">
+          <img src="imagenes/whatsapp.png" alt="whatsapp" />
+        </span>
+        Reservar Cita
+      </a>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+    </header>
+
+    <!-- ========================= -->
+    <!-- NOSOTROS / TEAM -->
+    <!-- ========================= -->
+
+    <section class="about-team">
+      <!-- CONTENIDO SUPERIOR -->
+      <div class="about-header">
+        <span class="about-subtitle"> Clínica </span>
+
+        <h2>Odontomaster</h2>
+
+        <p>
+          En Odontomaster trabajamos con pasión por la salud y estética dental
+          de nuestros pacientes, ofreciendo tratamientos integrales con
+          tecnología moderna, atención personalizada y un equipo altamente
+          capacitado. Nuestro compromiso es brindar sonrisas saludables,
+          funcionales y seguras en un ambiente cómodo, profesional y de
+          confianza.
+        </p>
+      </div>
+
+      <!-- EQUIPO -->
+      <div class="team-section">
+        <span class="team-mini-title"> NUESTRO EQUIPO </span>
+
+        <h3>Odontólogos de Primera</h3>
+
+        <p class="team-description">
+          En Odontomaster contamos con especialistas altamente capacitados,
+          comprometidos en ofrecer un servicio odontológico moderno, profesional
+          y humano.
+        </p>
+
+        <!-- DOCTORES -->
+        <div class="team-cards">
+          <!-- DOCTOR 1 -->
+          <div class="team-card">
+            <div class="team-image">
+              <img src="imagenes/Pgarrido.jfif" alt="Doctora" />
+            </div>
+
+            <div class="team-info">
+              <span class="team-location"></span>
+
+              <h4>Dra. Pablo Garrido.</h4>
+
+              <p>Especialista en Ortodoncia y Estética Dental.</p>
+            </div>
+          </div>
+
+          <!-- DOCTOR 2 -->
+          <div class="team-card">
+            <div class="team-image">
+              <img src="imagenes/chichobelo.jpg" alt="Doctor" />
+            </div>
+
+            <div class="team-info">
+              <span class="team-location"></span>
+
+              <h4>Dr. Gianfranco Robles.</h4>
+
+              <p>Especialista en Rehabilitación Oral e Implantología.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ <!-- FORMULARIO -->
+    <div class ="contact-container">
+    <section class="contact-section" id="contacto">
+      <!-- IZQUIERDA -->
+      <div class="contact-info">
+        <h2>Visítanos</h2>
+
+        <p class="label">Ubicación</p>
+        <p>Av. Tupac Amaru - Nogales 105<br />Comas, Lima, Peru</p>
+<br />
+        <a
+          href="https://waze.com/ul?ll=-11.945148664947583,-77.04989403584482&navigate=yes"
+          onclick="
+            setTimeout(() => {
+              window.location.href =
+                'https://www.google.com/maps?q=-11.945148664947583,-77.04989403584482';
+            }, 2000);"
+          "
+          target="_blank"
+          class="btn-map"
+        >
+          ¿Cómo llegar?
+        </a>
+
+        <p class="label">Horario de Atención</p>
+        <p>Lunes a viernes:<br />9:00 am - 7:00 pm</p>
+
+        <p>Sábados:<br />9:00 am - 1:00 pm</p>
+      </div>
+
+      <!-- DERECHA -->
+      <div class="contact-form">
+        <h2>¡Estás a un paso de transformar tu sonrisa!</h2>
+
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" placeholder="" />
+            </div>
+
+            <div class="form-group">
+              <label>Apellidos</label>
+              <input type="text" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Número de teléfono</label>
+              <input id="phone" type="tel" />
+            </div>
+
+            <div class="form-group">
+              <label>Correo *</label>
+              <input type="email" />
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label>Especialidades</label>
+            <select>
+              <option>Selecciona</option>
+              <option>Ortodoncia</option>
+              <option>Implantes</option>
+              <option>Limpieza</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+     </div>
+     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js"></script>
+     <script>
+
+    const input = document.querySelector("#phone");
+
+    window.intlTelInput(input, {
+
+        initialCountry: "pe",
+
+        preferredCountries: ["pe", "mx", "co", "us"],
+
+        separateDialCode: true,
+
+    });
+
+</script>
+  </body>
+</html>
