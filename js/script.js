@@ -58,3 +58,15 @@ setInterval(() => {
     }
 
 }, 3000);
+
+const input = document.querySelector("#phone");
+
+    window.intlTelInput(input, {
+
+        initialCountry: "pe",
+
+        preferredCountries: ["pe", "mx", "co", "us"],
+
+        separateDialCode: true,
+
+    });

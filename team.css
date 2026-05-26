@@ -274,6 +274,14 @@ max-width: 900px;
     transform: scale(1.08);
 }
 
+.team-card-link {
+
+    text-decoration: none;
+
+    color: inherit;
+
+    display: block;
+}
 
 /* ========================= */
 /* INFO */
@@ -398,6 +406,7 @@ input, select {
     border: none;
     cursor: pointer;
 }
+
 
 
 
