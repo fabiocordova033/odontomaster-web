@@ -1,0 +1,164 @@
+/* ====== RESET BÁSICO OPCIONAL ====== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ====== SECCIÓN ENDODONCIA ====== */
+.seccion-endodoncia {
+  background-color: #ffffff;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.endodoncia-contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Texto de categoría */
+.endodoncia-categoria {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #00a6c7;     /* azul verdoso similar */
+  margin-bottom: 10px;
+}
+
+/* Grid principal */
+.endodoncia-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* texto más ancho que video */
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Columna texto */
+.endodoncia-titulo {
+  font-size: 1.8rem;
+  color: #5a1f6d;   /* similar al morado del ejemplo */
+  margin-bottom: 15px;
+}
+
+.endodoncia-parrafo {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444444;
+  margin-bottom: 12px;
+}
+
+/* Botones */
+.endodoncia-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-primario {
+  background: #5a1f6d;
+  color: #ffffff;
+}
+
+.btn-primario:hover {
+  background: #7a2a90;
+}
+
+.btn-secundario {
+  background: #ffffff;
+  color: #5a1f6d;
+  border-color: #5a1f6d;
+}
+
+.btn-secundario:hover {
+  background: #5a1f6d;
+  color: #ffffff;
+}
+
+/* Columna video: formato 16:9 responsive */
+.endodoncia-video .video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.endodoncia-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Pestaña lateral “En línea” */
+.endodoncia-tab-lateral {
+  position: absolute;
+  top: 50%;
+  right: -40px;         /* saca la pestaña hacia afuera */
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: right center;
+  background: #ffb100;  /* color naranja/amarillo similar */
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 0 0 10px 10px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+}
+
+/* Hover pestaña lateral */
+.endodoncia-tab-lateral:hover {
+  background: #ff9500;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1024px) {
+  .endodoncia-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .endodoncia-video {
+    order: -1; /* si quieres que el video vaya arriba en móvil, cámbialo o quítalo */
+  }
+
+  .endodoncia-tab-lateral {
+    right: -30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .seccion-endodoncia {
+    padding: 30px 15px;
+  }
+
+  .endodoncia-titulo {
+    font-size: 1.5rem;
+  }
+
+  .endodoncia-tab-lateral {
+    display: none; /* opcional: ocultar pestaña en pantallas muy pequeñas */
+  }
+}

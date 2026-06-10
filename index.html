@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="imagenes/logo.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css"/>
+    
   </head>
   <body>
     <!-- NAVBAR -->
@@ -38,8 +39,8 @@
         <div class="carousel">
           <div class="slides">
             <img src="imagenes/Carrusel1.png" class="slide active" />
-            <img src="imagenes/Carrusel2.png" class="slide active" />
-            <img src="imagenes/Carrusel3.png" class="slide active" />
+            <img src="imagenes/Carrusel2.png" class="slide " />
+            <img src="imagenes/Carrusel3.png" class="slide " />
           </div>
           <!-- Botones -->
           <button class="prev">❮</button>
@@ -54,8 +55,8 @@
       </div>
       <br />
       <div class="buttons">
-        <button class="btn-dark">Conocenos</button>
-        <button class="btn-outline">Rerserva tu cita</button>
+        <button class="btn-dark" href="team.html">Conocenos</button>
+        <button class="btn-outline" href="#contacto">Reserva tu cita</button>
       </div>
     </section>
 
@@ -179,7 +180,7 @@
             y personalizada para cuidar tu sonrisa.
         </p>
 
-        <a href="#" class="btn-staff">
+        <a href="team.html#doctores" class="btn-staff">
             Nuestro Staff
         </a>
 
@@ -228,34 +229,34 @@
       <div class="contact-form">
         <h2>¡Estás a un paso de transformar tu sonrisa!</h2>
 
-        <form>
+        <form id="contact-form">
           <div class="form-row">
             <div class="form-group">
               <label>Nombre</label>
-              <input type="text" placeholder="" />
+              <input type="text" id="nombre" name="nombre" placeholder="" />
             </div>
 
             <div class="form-group">
               <label>Apellidos</label>
-              <input type="text" />
+              <input type="text" id="apellidos" name="apellidos" placeholder="" />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label>Número de teléfono</label>
-              <input id="phone" type="tel" />
+              <input id="telefono" name="telefono" type="tel" required/>
             </div>
 
             <div class="form-group">
               <label>Correo *</label>
-              <input type="email" />
+              <input type="email" id="email" name="email" required/>
             </div>
           </div>
 
           <div class="form-group full">
             <label>Especialidades</label>
-            <select>
+            <select id="especialidad">
               <option>Selecciona</option>
               <option>Ortodoncia</option>
               <option>Implantes</option>
@@ -278,7 +279,7 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-      <p>© 2023 Dentistry Services. All rights reserved.</p>
+      <p>© 2026 Dentistry Services. All rights reserved.</p>
       <div>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
@@ -288,6 +289,7 @@
       <img src="imagenes/whatsapp.png" alt="WhatsApp" />
     </a>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

@@ -120,6 +120,7 @@ body::before {
 .about-header {
 
 max-width: 900px;
+    
 
     margin: 0 auto 120px auto;
 
@@ -168,7 +169,7 @@ max-width: 900px;
 /* ========================= */
 
 .team-section {
-
+    
     text-align: center;
 }
 
