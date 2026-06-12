@@ -8,7 +8,7 @@
       content="Clínica dental en Lima especializada en limpieza, ortodoncia y blanqueamiento dental"
     />
     <title>Odontomaster</title>
-    <link rel="stylesheet" href="servicios.css" />
+    <link rel="stylesheet" href="css/servicios.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="logo.png" />
   </head>
   <body>
@@ -29,143 +29,49 @@
       <div class="menu-toggle" id="menu-toggle">☰</div>
     </header>
     <!-- TRATAMIENTOS DENTALES -->
-    <section class="treatments">
-      <!-- TITULO -->
-      <div class="treatments-header">
-        <h2>Tratamientos Dentales Integrales</h2>
-
-        <p>
+    <!-- SECCIÓN TRATAMIENTOS CIRCULARES -->
+    <section class="tratamientos-circulares">
+      <div class="tc-container">
+        <h2>Tratamientos Dentales<br /><span>Integrales</span></h2>
+        <p class="tc-subtitle">
           Todos nuestros tratamientos y servicios se brindan en cómodas
           instalaciones con los más altos estándares de calidad.
         </p>
-      </div>
 
-      <!-- CONTENEDOR CIRCULAR -->
-      <div class="treatments-circle">
-        <!-- IMAGEN CENTRAL -->
-        <div class="center-image">
-          <img src="imagenes/modelo.png" alt="Paciente" />
-        </div>
+        <div class="tc-circle-wrapper">
+          <!-- Círculo principal -->
+          <div class="tc-circle">
+            <!-- Imagen central -->
+            <div class="tc-center">
+              <img
+                src="imagenes/paciente-sonriente.jpg"
+                alt="Paciente sonriendo"
+              />
+            </div>
 
-        <!-- ITEM 1 -->
-        <div class="treatment-item item1">
-          <div class="treatment-button">
-            <span>+</span>
-          </div>
-
-          <div class="treatment-label">Diseño de sonrisa</div>
-
-          <!-- TOOLTIP -->
-          <div class="treatment-tooltip">
-            <h3>Diseño de sonrisa</h3>
-
-            <p>
-              El Diseño de Sonrisa consiste en mejorar la estética dental
-              logrando armonía, forma y color ideal.
-            </p>
-
-            <a href="#"> Descubrir más → </a>
-          </div>
-        </div>
-
-        <!-- ITEM 2 -->
-        <div class="treatment-item item2">
-          <div class="treatment-button">
-            <span>+</span>
-          </div>
-
-          <div class="treatment-label">Blanqueamiento Dental</div>
-
-          <div class="treatment-tooltip">
-            <h3>Blanqueamiento Dental</h3>
-
-            <p>
-              Recupera el brillo natural de tus dientes con tratamientos
-              modernos y seguros.
-            </p>
-
-            <a href="#"> Descubrir más → </a>
+            <!-- ITEMS alrededor (10) -->
+            <button class="tc-item" data-angle="0">
+              Resinas De Alta Estética
+            </button>
+            <button class="tc-item" data-angle="36">Prótesis Bucales</button>
+            <button class="tc-item" data-angle="72">Periodoncia</button>
+            <button class="tc-item" data-angle="108">Ortodoncia</button>
+            <button class="tc-item" data-angle="144">Odontopediatría</button>
+            <button class="tc-item" data-angle="180">Implantología</button>
+            <button class="tc-item" data-angle="216">Endodoncia</button>
+            <button class="tc-item" data-angle="252">
+              Cirugía Maxilofacial
+            </button>
+            <button class="tc-item" data-angle="288">Carillas Dentales</button>
+            <button class="tc-item" data-angle="324">
+              Blanqueamiento Dental
+            </button>
           </div>
         </div>
-
-        <!-- ITEM 3 -->
-        <div class="treatment-item item3">
-          <div class="treatment-button">
-            <span>+</span>
-          </div>
-
-          <div class="treatment-label">Carillas Dentales</div>
-
-          <div class="treatment-tooltip">
-            <h3>Carillas Dentales</h3>
-
-            <p>
-              Mejora forma, tamaño y color de tus dientes para una sonrisa
-              perfecta.
-            </p>
-
-            <a href="#"> Descubrir más → </a>
-          </div>
-        </div>
-
-        <!-- ITEM 4 -->
-        <div class="treatment-item item4">
-          <div class="treatment-button">
-            <span>+</span>
-          </div>
-
-          <div class="treatment-label">Ortodoncia</div>
-
-          <div class="treatment-tooltip">
-            <h3>Ortodoncia</h3>
-
-            <p>
-              Corrige la posición dental y mejora tu mordida con técnicas
-              modernas.
-            </p>
-
-            <a href="#"> Descubrir más → </a>
-          </div>
-        </div>
-
-        <!-- ITEM 5 -->
-        <div class="treatment-item item5">
-          <div class="treatment-button">
-            <span>+</span>
-          </div>
-
-          <div class="treatment-label">Endodoncia</div>
-
-          <div class="treatment-tooltip">
-            <h3>Endodoncia</h3>
-
-            <p>
-              Tratamiento especializado para salvar piezas dentales afectadas.
-            </p>
-
-            <a href="#"> Descubrir más → </a>
-          </div>
-        </div>
-
-        <!-- ITEM 6 -->
-        <div class="treatment-item item6">
-          <div class="treatment-button">
-            <span>+</span>
-          </div>
-
-          <div class="treatment-label">Implantología</div>
-
-          <div class="treatment-tooltip">
-            <h3>Implantología</h3>
-
-            <p>
-              Recupera dientes perdidos mediante implantes funcionales y
-              estéticos.
-            </p>
-
-            <a href="#"> Descubrir más → </a>
-          </div>
-        </div>
+        <!-- Descripción dinámica (opcional) -->
+        <p id="tc-descripcion" class="tc-descripcion">
+          Selecciona un tratamiento para ver más detalles.
+        </p>
       </div>
     </section>
 
@@ -189,6 +95,6 @@
         <!-- LAS IMAGENES SE INSERTARAN DESDE JS -->
       </div>
     </section>
-    <script src="js/servicios.js"></script>
+    <script src="scripts/servicios.js"></script>
   </body>
 </html>

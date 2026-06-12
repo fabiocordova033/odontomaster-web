@@ -8,7 +8,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    background-image: url("imagenes/Fondomejorado.jpg"); /* tu imagen */
+    background-image: url("/imagenes/Fondomejorado.jpg"); /* tu imagen */
     background-size: cover;        /* 🔥 ocupa toda la pantalla */
     background-position: center;   /* centrada */
     background-repeat: no-repeat;  /* no se repite */
