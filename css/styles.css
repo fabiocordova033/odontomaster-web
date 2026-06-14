@@ -32,6 +32,41 @@ body::before {
     cursor: pointer;
 }
 
+/* PRELOADER PANTALLA COMPLETA */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #65ccff;           /* COLOR DE TU MARCA */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#preloader.oculto {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader-content {
+  text-align: center;
+  color: #ffffff;
+}
+
+.preloader-logo {
+  width: 90px;
+  height: auto;
+  margin-bottom: 10px;
+  animation: preloader-pulse 1.4s infinite ease-in-out;
+}
+
+@keyframes preloader-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.06); opacity: 0.85; }
+}
+
+
 @media (max-width: 1024px) {
     .hero, .doctor, .contact {
         padding: 40px 5%;

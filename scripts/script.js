@@ -144,3 +144,35 @@ document.getElementById("contact-form").addEventListener("submit", function(even
         });
 });
 
+
+
+window.addEventListener("load", function () {
+  const preloader = document.getElementById("preloader");
+  if (!preloader) return;
+
+  // Espera un poquito y lo desvanece
+  setTimeout(() => {
+    preloader.classList.add("oculto");
+  }, 500); // 0.5s extra para que se vea el logo
+});
+
+
+// FADE OUT AL NAVEGAR
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll("a[href]:not([href^='#']):not([target='_blank'])");
+
+  links.forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.getAttribute("href");
+      if (!url || url.startsWith("javascript:")) return;
+
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 400); // mismo tiempo que la transición del body
+    });
+  });
+});
+

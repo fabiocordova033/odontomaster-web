@@ -1,3 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-image: url("/imagenes/Fondomejorado.jpg"); /* tu imagen */
+    background-size: cover;        /* 🔥 ocupa toda la pantalla */
+    background-position: center;   /* centrada */
+    background-repeat: no-repeat;  /* no se repite */
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* oscurece */
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.menu-toggle {
+    display: none;
+    margin-left: auto;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* PRELOADER PANTALLA COMPLETA */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #65ccff;           /* COLOR DE TU MARCA */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#preloader.oculto {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader-content {
+  text-align: center;
+  color: #ffffff;
+}
+
+.preloader-logo {
+  width: 90px;
+  height: auto;
+  margin-bottom: 10px;
+  animation: preloader-pulse 1.4s infinite ease-in-out;
+}
+
+@keyframes preloader-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.06); opacity: 0.85; }
+}
+
+.logo img{
+    width: 20px;
+    height: 20px;
+}
+.navbar {
+    display: flex;
+    grid-template-columns: 1fr auto 1fr;
+    background: transparent;
+    color:#ffffff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 5%;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    top:0;
+     background: linear-gradient(
+        to bottom,
+        rgba(69, 111, 250, 1),  /* arriba oscuro */
+        rgba(255, 255, 255, 0)  /* abajo transparente */
+    );
+}
+
+.navbar nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.navbar input {
+    padding: 5px 10px;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-self: end;
+    gap: 10px;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(135deg, #25D366 0%, #20BA5A 100%);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.btn-whatsapp:hover {
+    background: linear-gradient(135deg, #20BA5A 0%, #1DA851 100%);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-whatsapp .icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+
+
+
 /* ================== ENDODONCIA ================== */
 .seccion-endodoncia {
   padding: 60px 20px;
@@ -144,6 +291,164 @@
   background: #059669;
   transform: translateY(-50%) rotate(-90deg) translateY(-2px);
 }
+
+
+/* FORMULARIO */
+.contact-container{
+    width: 100%;
+    background: white;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+    padding: 70px 0px;
+    background: transparent;
+}
+
+/* IZQUIERDA */
+.contact-info {
+    width: 40%;
+}
+
+.contact-info h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.label {
+    color: #888;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.btn-map {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 8px 15px;
+    background: #2F80ED;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* DERECHA */
+.contact-form {
+    width: 55%;
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+}
+
+/* FILAS */
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+/* CAMPOS */
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group.full {
+    width: 100%;
+}
+
+/* INPUTS */
+input, select {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    background: #eef1f5;
+}
+
+/* BOTÓN */
+.btn-submit {
+    margin-top: 10px;
+    padding: 12px 30px;
+    background: black;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.map {
+    max-width: 1500px;   /* 🔥 controla qué tan ancho es */
+    margin: 40px auto;   /* 🔥 lo centra */
+    padding: 0 20px;     /* 🔥 espacio a los lados */
+}
+
+.map iframe {
+    width: 100%;
+    height: 400px;
+    border: 0;
+    border-radius: 12px;
+}
+
+/* FOOTER */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; 
+    padding: 20px 40px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.footer a {
+  text-decoration: none;
+    color: black
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer div {
+   display: flex;
+    gap: 10px;
+}
+
+.whatsapp-float {
+    position: fixed;      /* 🔥 lo hace flotante */
+    bottom: 20px;         /* distancia abajo */
+    right: 20px;          /* distancia derecha */
+    
+    width: 60px;
+    height: 60px;
+    
+    background: #25D366;
+    border-radius: 50%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    
+    z-index: 1000;        /* 🔥 siempre encima */
+}
+
+.whatsapp-float img {
+    width: 30px;
+    height: 30px;
+}
+
+
+
 
 /* ================== RESPONSIVE ================== */
 @media (max-width: 900px) {

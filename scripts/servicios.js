@@ -97,7 +97,6 @@ items.forEach((item) => {
   const angulo = parseFloat(item.dataset.angle); // en grados
   const rad = (angulo * Math.PI) / 180;
 
-  // Coordenadas relativas al centro
   const centerX = circulo.clientWidth / 2;
   const centerY = circulo.clientHeight / 2;
 
@@ -108,22 +107,49 @@ items.forEach((item) => {
   item.style.top = y + "px";
 });
 
-// Manejar clic en cada tratamiento
+// ===== A PARTIR DE AQUÍ CAMBIA =====
+
+// Referencias a descripción e imagen central
 const descripcion = document.getElementById("tc-descripcion");
+const imagenCentral = document.getElementById("tc-imagen-central");
 
+// Guardar estado por defecto
+const descripcionDefault = descripcion ? descripcion.textContent : "";
+const imagenDefault = imagenCentral ? imagenCentral.src : "";
+
+// HOVER en lugar de CLICK
 items.forEach((item) => {
-  item.addEventListener("click", () => {
-    // Quitar activo previo
-    items.forEach((i) => i.classList.remove("tc-activo"));
-    // Activar el actual
-    item.classList.add("tc-activo");
-
+  item.addEventListener("mouseenter", () => {
     const texto = item.textContent.trim();
-    descripcion.textContent =
-      descripcionesTratamientos[texto] ||
-      "Tratamiento especializado para mejorar tu salud y estética dental.";
+
+    // Cambiar descripción
+    if (descripcion) {
+      descripcion.textContent =
+        descripcionesTratamientos[texto] ||
+        "Tratamiento especializado para mejorar tu salud y estética dental.";
+    }
+
+    // Cambiar imagen
+    const nuevaImagen = item.dataset.image; // viene del HTML: data-image="..."
+    if (imagenCentral && nuevaImagen) {
+      imagenCentral.src = nuevaImagen;
+    }
+
+    // (Opcional) estilo activo
+    // items.forEach((i) => i.classList.remove("tc-activo"));
+    // item.classList.add("tc-activo");
+  });
+
+  item.addEventListener("mouseleave", () => {
+    // Volver a descripción e imagen por defecto
+    if (descripcion) descripcion.textContent = descripcionDefault;
+    if (imagenCentral && imagenDefault) imagenCentral.src = imagenDefault;
+
+    // (Opcional) quitar activo
+    // item.classList.remove("tc-activo");
   });
 });
+
 
 // Activar uno por defecto
 //if (items[0]) {

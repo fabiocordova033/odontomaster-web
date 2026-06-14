@@ -133,7 +133,7 @@ body::before {
 
 .tc-subtitle {
   max-width: 600px;
-  margin: 0 auto 40px;
+  margin: 0 auto 60px;
   font-size: 15px;
   color: #6b7280;
 }
@@ -194,8 +194,7 @@ body::before {
 }
 
 /* Estado activo / hover */
-.tc-item:hover,
-.tc-item.tc-activo {
+.tc-item:hover {
   background: #0ea5e9;
   color: #ffffff;
   border-color: #0ea5e9;
@@ -205,7 +204,7 @@ body::before {
 
 /* Descripción */
 .tc-descripcion {
-  margin-top: 100px;
+  margin-top: 60px;
   font-size: 14px;
   color: #4b5563;
 }
