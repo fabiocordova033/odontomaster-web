@@ -10,7 +10,7 @@
     <title>Odontomaster | Clinica Dental</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="imagenes/logo.png" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css" integrity="sha384-dtmSEPuKDExMe4jB/GN1CLwChZhgGsg8FrOtj405iysBoklNdIsyVGDeWutzRVCC" crossorigin="anonymous"/>
     
   </head>
   <body>
@@ -46,9 +46,18 @@
       <div class="hero-image">
         <div class="carousel">
           <div class="slides">
-            <img src="imagenes/Carrusel1.png" class="slide active" />
-            <img src="imagenes/Carrusel2.png" class="slide " />
-            <img src="imagenes/Carrusel3.png" class="slide " />
+            <picture>
+              <source srcset="imagenes/Carrusel1.webp" type="image/webp" />
+              <img src="imagenes/Carrusel1.jpg" class="slide active" />
+            </picture>
+            <picture>
+              <source srcset="imagenes/Carrusel2.webp" type="image/webp" />
+              <img src="imagenes/Carrusel2.jpg" class="slide " />
+            </picture>
+            <picture>
+              <source srcset="imagenes/Carrusel3.webp" type="image/webp" />
+              <img src="imagenes/Carrusel3.jpg" class="slide " />
+            </picture>
           </div>
           <!-- Botones -->
           <button class="prev">❮</button>
@@ -238,6 +247,10 @@
         <h2>¡Estás a un paso de transformar tu sonrisa!</h2>
 
         <form id="contact-form">
+          <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;">
+            <label for="website">No completar este campo</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
           <div class="form-row">
             <div class="form-group">
               <label>Nombre</label>
@@ -293,11 +306,11 @@
         <a href="#">Terms of Service</a>
       </div>
     </footer>
-    <a href="https://wa.me/51999999999" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/51910840567" target="_blank" class="whatsapp-float">
       <img src="imagenes/whatsapp.png" alt="WhatsApp" />
     </a>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js" integrity="sha384-nv67vFdfHkxUBLSrw9GmwRuKfHtJ1BL12/S9/m4xPtZQmWW7cfu01o3Mxc32GUQx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
     <script src="scripts/script.js"></script>
   </body>
 </html>

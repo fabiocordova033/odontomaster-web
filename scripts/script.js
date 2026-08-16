@@ -84,6 +84,12 @@ const input = document.querySelector("#telefono");
 document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Evita recargar la página
 
+    // Honeypot anti-spam: si un bot llenó este campo oculto, se descarta en silencio
+    const honeypot = document.getElementById("website");
+    if (honeypot && honeypot.value.trim() !== "") {
+        return;
+    }
+
     const statusMsg = document.getElementById("form-status");
     const submitBtn = document.querySelector(".btn-submit");
 
