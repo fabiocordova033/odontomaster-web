@@ -451,49 +451,6 @@ input, select {
 
 
 /* ================== RESPONSIVE ================== */
-@media (max-width: 768px) {
-    /* Navbar responsive: menu hamburguesa */
-    .menu-toggle {
-        display: block;
-        color: white;
-        cursor: pointer;
-        margin-left: auto;
-    }
-
-    nav {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        transition: all 0.3s ease;
-        background: rgba(0,0,0,0.9);
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        max-height: 0;
-        overflow: hidden;
-    }
-
-    nav a {
-        padding: 15px;
-        width: 100%;
-        text-align: center;
-        color: white;
-    }
-
-    nav.active {
-        max-height: 300px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .btn-whatsapp,
-    button.btn-whatsapp {
-        display: none !important;
-    }
-}
-
 @media (max-width: 900px) {
   .endodoncia-grid {
     grid-template-columns: 1fr;

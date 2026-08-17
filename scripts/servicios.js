@@ -7,7 +7,7 @@ let clinicalCases = [];
 
 /* CARGAR JSON */
 
-fetch("../data/casos.json")
+fetch("data/casos.json")
 
     .then(response => response.json())
 
