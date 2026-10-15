@@ -1,0 +1,132 @@
+/* ================== PÁGINAS LEGALES (privacidad y términos) ================== */
+/* Se carga después de servicios-especificos.css (navbar, footer y WhatsApp) */
+
+.seccion-legal {
+  padding: 120px 20px 60px; /* espacio para el navbar fijo */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.legal-contenedor {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 48px 56px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  color: #111827;
+}
+
+.legal-categoria {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #0d9488;
+  margin-bottom: 10px;
+}
+
+.legal-contenedor h1 {
+  font-size: 32px;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.legal-actualizacion {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.legal-contenedor h2 {
+  font-size: 20px;
+  color: #0f172a;
+  margin: 32px 0 12px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.legal-contenedor p,
+.legal-contenedor li {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+.legal-contenedor p {
+  margin-bottom: 12px;
+}
+
+.legal-contenedor ul {
+  margin: 0 0 12px 22px;
+}
+
+.legal-contenedor li {
+  margin-bottom: 6px;
+}
+
+.legal-contenedor a {
+  color: #0d9488;
+  font-weight: 600;
+}
+
+/* Datos que la clínica debe completar antes de publicar */
+.legal-pendiente {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.legal-volver {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 22px;
+  background: #0d9488;
+  color: #ffffff !important;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.legal-volver:hover {
+  background: #0b766c;
+}
+
+@media (max-width: 768px) {
+  .seccion-legal {
+    padding: 110px 16px 40px;
+  }
+
+  .legal-contenedor {
+    padding: 32px 24px;
+  }
+
+  .legal-contenedor h1 {
+    font-size: 26px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .navbar nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar nav a {
+    margin: 0 6px;
+    font-size: 14px;
+  }
+
+  .btn-whatsapp {
+    display: none;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+}
