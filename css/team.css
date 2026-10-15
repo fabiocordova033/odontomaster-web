@@ -409,6 +409,70 @@ input, select {
 }
 
 
+.map {
+    max-width: 1500px;   /* 🔥 controla qué tan ancho es */
+    margin: 40px auto;   /* 🔥 lo centra */
+    padding: 0 20px;     /* 🔥 espacio a los lados */
+}
+
+.map iframe {
+    width: 100%;
+    height: 400px;
+    border: 0;
+    border-radius: 12px;
+}
+
+/* FOOTER */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; 
+    padding: 20px 40px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.footer a {
+  text-decoration: none;
+    color: black
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer div {
+   display: flex;
+    gap: 10px;
+}
+
+.whatsapp-float {
+    position: fixed;      /* 🔥 lo hace flotante */
+    bottom: 20px;         /* distancia abajo */
+    right: 20px;          /* distancia derecha */
+    
+    width: 60px;
+    height: 60px;
+    
+    background: #25D366;
+    border-radius: 50%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    
+    z-index: 1000;        /* 🔥 siempre encima */
+}
+
+.whatsapp-float img {
+    width: 30px;
+    height: 30px;
+}
+
+
 
 
 /* ========================= */
