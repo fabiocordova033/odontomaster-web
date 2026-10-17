@@ -121,13 +121,13 @@ body::before {
   text-align: center;
 }
 
-.tc-container h2 {
+.tc-container h1 {
   font-size: 32px;
   color: #111827;
   margin-bottom: 10px;
 }
 
-.tc-container h2 span {
+.tc-container h1 span {
   font-weight: 700;
 }
 
@@ -357,7 +357,7 @@ body::before {
     padding: 6px 8px;
   }
 
-  .tc-container h2 {
+  .tc-container h1 {
     font-size: 26px;
   }
 

@@ -145,7 +145,7 @@ max-width: 900px;
     margin-bottom: 10px;
 }
 
-.about-header h2 {
+.about-header h1 {
 
     font-size: 70px;
 
@@ -481,7 +481,7 @@ input, select {
 
 @media (max-width: 1024px) {
 
-    .about-header h2 {
+    .about-header h1 {
 
         font-size: 55px;
     }
@@ -521,7 +521,7 @@ input, select {
         margin-bottom: 90px;
     }
 
-    .about-header h2 {
+    .about-header h1 {
 
         font-size: 45px;
     }

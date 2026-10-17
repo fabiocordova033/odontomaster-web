@@ -1,0 +1,5 @@
+# Permite que todos los buscadores indexen el sitio
+User-agent: *
+Allow: /
+
+Sitemap: https://DOMINIO-PENDIENTE/sitemap.xml
