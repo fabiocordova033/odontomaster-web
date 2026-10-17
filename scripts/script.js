@@ -29,12 +29,7 @@ if (slides.length > 0) {
 }
 
 
-const toggle = document.getElementById("menu-toggle");
-const nav = document.getElementById("nav-menu");
-
-toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-});
+// El menú hamburguesa ahora está en scripts/menu.js (compartido por todas las páginas)
 
 
 
