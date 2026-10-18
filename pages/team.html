@@ -24,10 +24,23 @@
   href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css"
 />
     <link rel="stylesheet" href="/css/team.css"/>
+    <link rel="stylesheet" href="/css/preloader.css" />
     <link rel="stylesheet" href="/css/menu.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/logo.png" />
   </head>
   <body>
+    <!-- PRELOADER -->
+    <div id="preloader">
+      <div class="preloader-content">
+        <img
+          src="/imagenes/logo.png"
+          alt="Odontomaster"
+          class="preloader-logo"
+        />
+        <p>Cargando...</p>
+      </div>
+    </div>
+
     <!-- NAVBAR -->
     <header class="navbar">
       <div class="logo">ODONTOMASTER</div>
@@ -236,6 +249,7 @@
     });
 
 </script>
+    <script src="/scripts/preloader.js"></script>
     <script src="/scripts/menu.js"></script>
   </body>
 </html>
