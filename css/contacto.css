@@ -73,8 +73,9 @@
     width: 100%;
 }
 
-/* INPUTS */
-input, select {
+/* INPUTS (solo los del formulario de contacto) */
+.contact-form input,
+.contact-form select {
     padding: 12px;
     border-radius: 10px;
     border: 1px solid #ddd;
@@ -224,8 +225,8 @@ input, select {
     }
 
     /* 16px evita que el iPhone haga zoom al tocar un campo */
-    input,
-    select {
+    .contact-form input,
+    .contact-form select {
         font-size: 16px;
     }
 
