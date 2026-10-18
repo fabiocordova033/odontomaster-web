@@ -35,7 +35,8 @@ if (slides.length > 0) {
 
 const container = document.querySelector(".testimonial-cards");
 
-setInterval(() => {
+// Solo el inicio tiene testimonios: en las demás páginas no se ejecuta
+if (container) setInterval(() => {
 
     // mover primera tarjeta al final
     container.appendChild(container.firstElementChild);
