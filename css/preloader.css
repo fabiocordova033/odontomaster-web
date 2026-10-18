@@ -1,6 +1,6 @@
 /* ================== PRELOADER (compartido) ================== */
 /* Mismo diseño que en servicios-especificos.css y styles.css.
-   Lo usan las páginas cuyo CSS no lo tiene (servicios y nosotros). */
+   Lo usan las páginas cuyo CSS no lo tiene (servicios, nosotros y doctores). */
 
 #preloader {
   position: fixed;

@@ -20,10 +20,23 @@
     <meta property="og:image:alt" content="Dr. Gianfranco Robles atendiendo en Odontomaster" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="/css/doctor-profile.css" />
+    <link rel="stylesheet" href="/css/preloader.css" />
     <link rel="stylesheet" href="/css/menu.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/logo.png" />
   </head>
   <body>
+    <!-- PRELOADER -->
+    <div id="preloader">
+      <div class="preloader-content">
+        <img
+          src="/imagenes/logo.png"
+          alt="Odontomaster"
+          class="preloader-logo"
+        />
+        <p>Cargando...</p>
+      </div>
+    </div>
+
     <!-- NAVBAR -->
     <header class="navbar">
       <div class="logo">ODONTOMASTER</div>
@@ -141,6 +154,7 @@
         </div>
       </div>
     </section>
+    <script src="/scripts/preloader.js"></script>
     <script src="/scripts/menu.js"></script>
   </body>
 </html>
