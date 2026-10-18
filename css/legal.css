@@ -91,22 +91,148 @@
   background: #0b766c;
 }
 
-@media (max-width: 768px) {
+/* Evita que iPhone/iPad agranden el texto al girar la pantalla */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Correos o textos largos no se salen de la caja en pantallas chicas */
+.legal-contenedor {
+  overflow-wrap: break-word;
+}
+
+/* ================== RESPONSIVE ================== */
+/* Mismos anchos en iOS y Android (son píxeles CSS, no de pantalla):
+   - 1024px: tablets grandes y en horizontal (iPad Pro 1024, iPad 10ª 820, Galaxy Tab 800)
+   - 768px:  tablets en vertical (iPad mini 768, tablets Android 7-8")
+   - 480px:  celulares (iPhone 375-430, Android 360-412)
+   - 360px:  celulares pequeños (Android 360, iPhone SE 1ª gen 320) */
+
+/* TABLETS GRANDES / HORIZONTAL */
+@media (max-width: 1024px) {
   .seccion-legal {
-    padding: 110px 16px 40px;
+    padding: 100px 24px 50px;
   }
 
   .legal-contenedor {
-    padding: 32px 24px;
+    padding: 40px 44px;
   }
 
   .legal-contenedor h1 {
-    font-size: 26px;
+    font-size: 30px;
+  }
+}
+
+/* TABLETS EN VERTICAL */
+@media (max-width: 768px) {
+  .seccion-legal {
+    padding: 95px 16px 40px;
+  }
+
+  .legal-contenedor {
+    padding: 32px 28px;
+  }
+
+  .legal-contenedor h1 {
+    font-size: 28px;
+  }
+
+  .legal-contenedor h2 {
+    font-size: 19px;
+    margin-top: 28px;
   }
 
   .footer {
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
     padding: 20px;
+  }
+}
+
+/* CELULARES (iPhone y Android) */
+@media (max-width: 480px) {
+  .seccion-legal {
+    padding: 90px 12px 32px;
+  }
+
+  .legal-contenedor {
+    padding: 28px 20px;
+    border-radius: 12px;
+  }
+
+  .legal-categoria {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .legal-contenedor h1 {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+
+  .legal-actualizacion {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .legal-contenedor h2 {
+    font-size: 18px;
+    line-height: 1.35;
+    margin-top: 24px;
+    padding-top: 18px;
+  }
+
+  .legal-contenedor p,
+  .legal-contenedor li {
+    line-height: 1.65;
+  }
+
+  .legal-contenedor ul {
+    margin-left: 18px;
+  }
+
+  /* Botón "Volver al inicio" a todo el ancho: más fácil de tocar */
+  .legal-volver {
+    display: block;
+    text-align: center;
+    padding: 14px 20px;
+  }
+}
+
+/* CELULARES PEQUEÑOS */
+@media (max-width: 360px) {
+  .seccion-legal {
+    padding: 84px 8px 24px;
+  }
+
+  .legal-contenedor {
+    padding: 24px 16px;
+  }
+
+  .legal-contenedor h1 {
+    font-size: 22px;
+  }
+
+  .legal-contenedor h2 {
+    font-size: 17px;
+  }
+}
+
+/* CELULAR EN HORIZONTAL: la pantalla es baja, menos espacio arriba */
+@media (max-height: 500px) and (orientation: landscape) {
+  .seccion-legal {
+    padding-top: 80px;
+  }
+}
+
+/* PANTALLAS TÁCTILES: enlaces del footer de al menos 44px de alto
+   (mínimo recomendado por Apple y por Google para tocar con el dedo) */
+@media (hover: none) and (pointer: coarse) {
+  .footer div a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 8px;
   }
 }
