@@ -67,310 +67,7 @@ body::before {
 }
 
 
-/* Cortes responsive del sitio (iguales en todos los CSS; píxeles CSS, iguales en iOS y Android):
-   1024px tablets grandes y horizontal · 768px tablets en vertical · 480px celulares · 360px celulares pequeños */
-@media (max-width: 1024px) {
-    .hero, .doctor, .contact {
-        padding: 40px 5%;
-    }
-    
-    .hero {
-        height: auto;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        gap: 30px;
-    }
-    .hero-text {
-        order:1;
-    }
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
 
-    .hero-image {
-        order:2;
-        width: 100%;
-        height: 100%; /* Reducimos altura en tablets */
-    }
-
-    .buttons {
-        order:3;
-    }
-
-    .services-section {
-
-        flex-direction: column;
-    }
-
-    .services-left,
-    .services-right {
-
-        width: 100%;
-    }
-
-    .services-left {
-
-        padding: 70px 40px;
-    }
-
-    .services-right {
-
-        padding: 70px 40px;
-    }
-
-    .team-section {
-
-        flex-direction: column;
-    }
-
-    .team-content,
-    .team-image {
-
-        width: 100%;
-    }
-
-    .team-content {
-
-        padding: 70px 50px;
-    }
-
-
-    .team-image {
-
-        height: 500px;
-    }
-        .menu-toggle {
-        display: block;
-        color: white;
-        cursor: pointer;
-        margin-left: auto;
-    }
-
-    nav {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: rgba(0,0,0,0.9);
-        display: none;
-        flex-direction: column;
-        max-height: 0;
-        overflow: hidden;
-    }
-
-    nav.active {
-        max-height: 300px;
-        display: flex;
-    }
-
-    .btn-whatsapp,
-    button.btn-whatsapp {
-        display: none !important;
-    }
-
-}
-
-@media (max-width: 768px) {
-    /* Navbar: Pasamos de Grid a Flex para mejor control */
-    
-    .services-section {
-
-        flex-direction: column;
-    }
-
-    .services-left,
-    .services-right {
-
-        width: 100%;
-
-        padding: 50px 25px;
-    }
-
-    .services-left h2 {
-
-        font-size: 42px;
-    }
-
-    .services-left p {
-
-        font-size: 17px;
-    }
-
-    .service-box {
-
-        flex-direction: column;
-
-        text-align: center;
-
-        gap: 20px;
-    }
-
-    .service-icon {
-
-        width: 100px;
-        height: 100px;
-    }
-
-    .service-icon img {
-
-        width: 45px;
-    }
-
-    .service-text h3 {
-
-        font-size: 26px;
-    }
-
-    .service-text p {
-
-        font-size: 15px;
-    }
-
-
-    /* Secciones de servicios y testimonios */
-    .testimonial-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .products .btn-dark {
-        display: none;
-    }
-    .product-cards{
-        display: none !important;
-    }
-
-    .card, .testimonial {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .services-mobile {
-        display: flex !important;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-        padding: 20px;
-    }
-
-    .service-item {
-        text-align: center;
-        max-width: 350px;
-    }
-
-    .icon-circle {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto 15px;
-        border-radius: 50%;
-        background: rgba(0, 150, 255, 0.1);
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .icon-circle img {
-        width: 40px;
-    }
-
-    .service-item a {
-        color: #00c853;
-        text-decoration: none;
-    }
-
-
-    /* Artículos */
-    .article {
-        width: 100%;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    /* ========================= */
-/* RESPONSIVE MOVIL */
-/* ==========Doctor======= */
-    .team-content {
-
-        padding: 60px 30px;
-
-        align-items: center;
-
-        text-align: center;
-    }
-
-    .team-content h2 {
-
-        font-size: 42px;
-    }
-
-    .team-content p {
-
-        font-size: 16px;
-    }
-
-    .team-image {
-
-        height: 350px;
-    }
-
-    .btn-staff {
-
-        padding: 14px 35px;
-    }
-
-    /* Formulario de contacto */
-
-    .contact-section {
-        flex-direction: column; /* 🔥 cambia a vertical */
-        padding: 30px 20px;
-        gap: 30px;
-        align-items: center;
-    }
-
-    .contact-info,
-    .contact-form {
-        width: 100%; /* 🔥 ocupan todo */
-    }
-
-    /* FORMULARIO EN COLUMNA */
-    .form-row {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    /* INPUTS MÁS CÓMODOS */
-    input,
-    select {
-        width: 100%;
-        padding: 14px;
-        font-size: 16px; /* 🔥 evita zoom en iPhone */
-    }
-
-    /* BOTÓN GRANDE */
-    .btn-submit {
-        width: 100%;
-        padding: 14px;
-        font-size: 16px;
-    }
-
-    /* TEXTO CENTRADO (opcional) */
-    .contact-info {
-        text-align: center;
-    }
-
-    .form-row {
-        flex-direction: column;
-    }
-    /* Footer */
-    .footer {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-
-}
 
 /* NAVBAR */
 .logo img{
@@ -1057,3 +754,357 @@ input, select {
     height: 30px;
 }
 
+
+/* ================== RESPONSIVE ================== */
+/* Va al final del archivo: así estas reglas ganan a las de arriba (antes estaban al inicio y no se aplicaban) */
+/* Cortes responsive del sitio (iguales en todos los CSS; píxeles CSS, iguales en iOS y Android):
+   1024px tablets grandes y horizontal · 768px tablets en vertical · 480px celulares · 360px celulares pequeños */
+@media (max-width: 1024px) {
+    .hero, .doctor, .contact {
+        padding: 40px 5%;
+    }
+    
+    .hero {
+        /* height: auto; -> desactivado: el hero mantiene su alto original en tablet y celular */
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 30px;
+    }
+    .hero-text {
+        order:1;
+    }
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-image {
+        order:2;
+        width: 100%;
+        height: 100%; /* Reducimos altura en tablets */
+    }
+
+    .buttons {
+        order:3;
+    }
+
+    .services-section {
+
+        flex-direction: column;
+    }
+
+    .services-left,
+    .services-right {
+
+        width: 100%;
+    }
+
+    .services-left {
+
+        padding: 70px 40px;
+    }
+
+    .services-right {
+
+        padding: 70px 40px;
+    }
+
+    .team-section {
+
+        flex-direction: column;
+    }
+
+    .team-content,
+    .team-image {
+
+        width: 100%;
+    }
+
+    .team-content {
+
+        padding: 70px 50px;
+    }
+
+
+    .team-image {
+
+        height: 500px;
+    }
+        .menu-toggle {
+        display: block;
+        color: white;
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.9);
+        display: none;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    nav.active {
+        max-height: 300px;
+        display: flex;
+    }
+
+    .btn-whatsapp,
+    button.btn-whatsapp {
+        display: none !important;
+    }
+
+}
+
+@media (max-width: 768px) {
+    /* Navbar: Pasamos de Grid a Flex para mejor control */
+    
+    .services-section {
+
+        flex-direction: column;
+    }
+
+    .services-left,
+    .services-right {
+
+        width: 100%;
+
+        padding: 50px 25px;
+    }
+
+    .services-left h2 {
+
+        font-size: 42px;
+    }
+
+    .services-left p {
+
+        font-size: 17px;
+    }
+
+    .service-box {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 20px;
+    }
+
+    .service-icon {
+
+        width: 100px;
+        height: 100px;
+    }
+
+    .service-icon img {
+
+        width: 45px;
+    }
+
+    .service-text h3 {
+
+        font-size: 26px;
+    }
+
+    .service-text p {
+
+        font-size: 15px;
+    }
+
+
+    /* Secciones de servicios y testimonios */
+    .testimonial-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .products .btn-dark {
+        display: none;
+    }
+    .product-cards{
+        display: none !important;
+    }
+
+    .card, .testimonial {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .services-mobile {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding: 20px;
+    }
+
+    .service-item {
+        text-align: center;
+        max-width: 350px;
+    }
+
+    .icon-circle {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 15px;
+        border-radius: 50%;
+        background: rgba(0, 150, 255, 0.1);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icon-circle img {
+        width: 40px;
+    }
+
+    .service-item a {
+        color: #00c853;
+        text-decoration: none;
+    }
+
+
+    /* Artículos */
+    .article {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* ========================= */
+/* RESPONSIVE MOVIL */
+/* ==========Doctor======= */
+    .team-content {
+
+        padding: 60px 30px;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .team-content h2 {
+
+        font-size: 42px;
+    }
+
+    .team-content p {
+
+        font-size: 16px;
+    }
+
+    .team-image {
+
+        height: 350px;
+    }
+
+    .btn-staff {
+
+        padding: 14px 35px;
+    }
+
+    /* Formulario de contacto */
+
+    .contact-section {
+        flex-direction: column; /* 🔥 cambia a vertical */
+        padding: 30px 20px;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 100%; /* 🔥 ocupan todo */
+    }
+
+    /* FORMULARIO EN COLUMNA */
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* INPUTS MÁS CÓMODOS */
+    input,
+    select {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px; /* 🔥 evita zoom en iPhone */
+    }
+
+    /* BOTÓN GRANDE */
+    .btn-submit {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    /* TEXTO CENTRADO (opcional) */
+    .contact-info {
+        text-align: center;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+    /* Footer */
+    .footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+}
+
+/* ================== SERVICIOS DEL INICIO ================== */
+/* Tablets (481px a 1024px): el título arriba y las dos cajas (Odontología y Ortodoncia) una al lado de la otra */
+@media (max-width: 1024px) {
+    .services-right {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .service-box {
+        flex: 1;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .service-text p {
+        max-width: none;
+    }
+}
+
+/* Celulares (480px o menos): todo en vertical, una caja debajo de la otra */
+@media (max-width: 480px) {
+    .services-left,
+    .services-right {
+        padding: 50px 20px;
+    }
+
+    .services-right {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .services-left h2 {
+        font-size: 36px;
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 360px) {
+    .services-left h2 {
+        font-size: 32px;
+    }
+}
