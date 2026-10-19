@@ -105,6 +105,9 @@ items.forEach((item) => {
 
   item.style.left = x + "px";
   item.style.top = y + "px";
+
+  // Foto del tratamiento para la cuadrícula de tarjetas en celular y tablet vertical (ver servicios.css)
+  item.style.setProperty("--tc-img", `url("${item.dataset.image}")`);
 });
 
 // ===== A PARTIR DE AQUÍ CAMBIA =====
