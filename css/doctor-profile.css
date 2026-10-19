@@ -401,6 +401,8 @@ body::before {
 /* RESPONSIVE TABLET */
 /* ========================= */
 
+/* Cortes responsive del sitio (iguales en todos los CSS; píxeles CSS, iguales en iOS y Android):
+   1024px tablets grandes y horizontal · 768px tablets en vertical · 480px celulares · 360px celulares pequeños */
 @media (max-width: 1024px) {
 
     .doctor-profile {

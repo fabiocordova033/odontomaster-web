@@ -451,7 +451,10 @@ input, select {
 
 
 /* ================== RESPONSIVE ================== */
-@media (max-width: 900px) {
+/* Cortes responsive del sitio (iguales en todos los CSS; píxeles CSS, iguales en iOS y Android):
+   1024px tablets grandes y horizontal · 768px tablets en vertical · 480px celulares · 360px celulares pequeños */
+/* TABLETS EN VERTICAL Y CELULARES: texto y video uno debajo del otro */
+@media (max-width: 768px) {
   .endodoncia-grid {
     grid-template-columns: 1fr;
   }
@@ -474,7 +477,8 @@ input, select {
   }
 }
 
-@media (max-width: 600px) {
+/* CELULARES (iPhone y Android): botones a todo el ancho */
+@media (max-width: 480px) {
   .seccion-endodoncia {
     padding: 40px 16px;
   }
