@@ -147,7 +147,7 @@ body::before {
 
 /* ================== ENDODONCIA ================== */
 .seccion-endodoncia {
-  padding: 60px 20px;
+  padding: 100px 20px 60px; /* 100px arriba: deja espacio para el navbar fijo */
   background: #f7f9fc;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -480,7 +480,7 @@ input, select {
 /* CELULARES (iPhone y Android): botones a todo el ancho */
 @media (max-width: 480px) {
   .seccion-endodoncia {
-    padding: 40px 16px;
+    padding: 90px 16px 40px; /* 90px arriba: la etiqueta no queda debajo del navbar */
   }
 
   .endodoncia-botones {
