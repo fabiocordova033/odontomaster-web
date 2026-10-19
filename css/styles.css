@@ -1065,6 +1065,12 @@ input, select {
 /* ================== SERVICIOS DEL INICIO ================== */
 /* Tablets (481px a 1024px): el título arriba y las dos cajas (Odontología y Ortodoncia) una al lado de la otra */
 @media (max-width: 1024px) {
+    /* Sin alto mínimo de pantalla completa: la sección mide lo que su contenido,
+       así no queda espacio vacío antes de Testimonios */
+    .services-section {
+        min-height: auto;
+    }
+
     .services-right {
         flex-direction: row;
         justify-content: center;
