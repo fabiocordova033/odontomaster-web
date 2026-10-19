@@ -1,0 +1,123 @@
+/* ================== SELECTOR DE ESPECIALIDADES (compartido) ================== */
+/* Lista propia del campo "Especialidades": muestra 3 opciones y el resto con scroll,
+   igual en PC, tablet y celular. La crea scripts/selector.js a partir del <select>. */
+
+/* El <select> original queda oculto (sigue guardando el valor para el envío) */
+.selector-oculto {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.selector {
+    position: relative;
+    width: 100%;
+}
+
+/* Botón: mismo aspecto que los demás campos del formulario */
+.selector-boton {
+    width: 100%;
+    padding: 12px 40px 12px 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: #eef1f5;
+    color: #111827;
+    font: inherit;
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    -webkit-tap-highlight-color: transparent; /* sin destello azul al tocar en Android */
+}
+
+.selector-boton.selector-placeholder {
+    color: #6b7280;
+}
+
+/* Flecha */
+.selector-boton::after {
+    content: "";
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #4b5563;
+    border-bottom: 2px solid #4b5563;
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.selector.abierto .selector-boton::after {
+    transform: translateY(-30%) rotate(-135deg);
+}
+
+.selector-boton:focus-visible {
+    outline: 2px solid #4a6cff;
+    outline-offset: 2px;
+}
+
+/* Lista: 3 opciones visibles (3 x 44px) y scroll para el resto */
+.selector-lista {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    z-index: 50;
+    max-height: 132px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.15);
+}
+
+.selector.abierto .selector-lista {
+    display: block;
+}
+
+.selector-opcion {
+    display: flex;
+    align-items: center;
+    min-height: 44px; /* alto mínimo cómodo para tocar con el dedo */
+    padding: 0 14px;
+    font-size: 15px;
+    color: #111827;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f5f9;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.selector-opcion:last-child {
+    border-bottom: none;
+}
+
+.selector-opcion.selector-activa {
+    background: #eaf6ff;
+}
+
+.selector-opcion[aria-selected="true"] {
+    font-weight: 600;
+    color: #4a6cff;
+}
+
+/* Celulares: letra de 16px para que se lea bien */
+@media (max-width: 768px) {
+    .selector-boton,
+    .selector-opcion {
+        font-size: 16px;
+    }
+
+    .selector-boton {
+        padding: 14px 40px 14px 14px;
+    }
+}
