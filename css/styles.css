@@ -314,6 +314,8 @@ body::before {
     font-size: 20px;
 
     line-height: 1.7;
+
+    margin-bottom: 40px; /* espacio antes del botón "Ver servicios", igual que en Nuestro Equipo */
 }
 
 
