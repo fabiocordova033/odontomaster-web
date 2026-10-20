@@ -42,9 +42,10 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="/css/doctor-profile.css" />
     <link rel="stylesheet" href="/css/contacto.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css" integrity="sha384-dtmSEPuKDExMe4jB/GN1CLwChZhgGsg8FrOtj405iysBoklNdIsyVGDeWutzRVCC" crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/preloader.css" />
     <link rel="stylesheet" href="/css/selector.css" />
+    <link rel="stylesheet" href="/css/formulario.css" />
     <link rel="stylesheet" href="/css/menu.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/logo.png" />
   </head>
@@ -70,7 +71,7 @@
         <a href="team.html">Nosotros</a>
         <a href="#contacto">Contacto</a>
       </nav>
-      <a href="https://wa.me/51910840567" target="_blank" class="btn-whatsapp">
+      <a href="https://wa.me/51910840567" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
         <span class="icon">
           <img src="/imagenes/whatsapp.png" alt="whatsapp" />
         </span>
@@ -191,13 +192,8 @@
 <br />
         <a
           href="https://waze.com/ul?ll=-11.945148664947583,-77.04989403584482&navigate=yes"
-          onclick="
-            setTimeout(() => {
-              window.location.href =
-                'https://www.google.com/maps?q=-11.945148664947583,-77.04989403584482';
-            }, 2000);"
-          "
-          target="_blank"
+          data-respaldo="https://www.google.com/maps?q=-11.945148664947583,-77.04989403584482"
+          target="_blank" rel="noopener noreferrer"
           class="btn-map"
         >
           ¿Cómo llegar?
@@ -217,24 +213,24 @@
           <div class="form-row">
             <div class="form-group">
               <label>Nombre</label>
-              <input type="text" id="nombre" name="nombre" placeholder="" />
+              <input type="text" id="nombre" name="nombre" required maxlength="60" autocomplete="given-name" />
             </div>
 
             <div class="form-group">
               <label>Apellidos</label>
-              <input type="text" id="apellidos" name="apellidos" placeholder="" />
+              <input type="text" id="apellidos" name="apellidos" required maxlength="60" autocomplete="family-name" />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label>Número de teléfono</label>
-              <input id="telefono" name="telefono" type="tel" required/>
+              <input id="telefono" name="telefono" type="tel" required maxlength="20" autocomplete="tel-national" />
             </div>
 
             <div class="form-group">
               <label>Correo *</label>
-              <input type="email" id="email" name="email" required/>
+              <input type="email" id="email" name="email" required maxlength="100" autocomplete="email" />
             </div>
           </div>
           <div class="form-group full">
@@ -255,7 +251,20 @@
             </select>
           </div>
 
+          <!-- Campo trampa anti-spam: invisible para las personas, los bots lo llenan -->
+          <div class="campo-trampa" aria-hidden="true">
+            <label>No completes este campo <input type="text" name="sitio_web" tabindex="-1" autocomplete="off" /></label>
+          </div>
+
+          <div class="form-group full consentimiento">
+            <label>
+              <input type="checkbox" id="acepto" name="acepto" required />
+              <span>He leído y acepto la <a href="/pages/privacidad.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a></span>
+            </label>
+          </div>
+
           <button type="submit" class="btn-submit">Enviar</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -273,11 +282,11 @@
         <a href="/pages/terminos.html">Términos y Condiciones</a>
       </div>
     </footer>
-    <a href="https://wa.me/51910840567" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/51910840567" target="_blank" rel="noopener noreferrer" class="whatsapp-float">
       <img src="/imagenes/whatsapp.png" alt="WhatsApp" />
     </a>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js" integrity="sha384-nv67vFdfHkxUBLSrw9GmwRuKfHtJ1BL12/S9/m4xPtZQmWW7cfu01o3Mxc32GUQx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
     <script src="/scripts/selector.js"></script>
     <script src="/scripts/script.js"></script>
     <script src="/scripts/preloader.js"></script>

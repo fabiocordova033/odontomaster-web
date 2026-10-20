@@ -57,7 +57,9 @@ if (container) setInterval(() => {
 
 const input = document.querySelector("#telefono");
 
-    window.intlTelInput(input, {
+// Si la librería del teléfono no carga (CDN caído o bloqueado), el campo queda como uno normal
+// y el resto de la página sigue funcionando
+if (input && typeof window.intlTelInput === "function") window.intlTelInput(input, {
 
         initialCountry: "pe",
 
@@ -73,49 +75,103 @@ const input = document.querySelector("#telefono");
 // ✅ Inicializa EmailJS
 
 (function() {
-    emailjs.init("gG5IGnoQ3-VQm8HTM");
+    if (window.emailjs) emailjs.init("gG5IGnoQ3-VQm8HTM");
 })();
 
 // Manejar envío del formulario
-document.getElementById("contact-form").addEventListener("submit", function(event) {
+const contactForm = document.getElementById("contact-form");
+const cargaPagina = Date.now(); // para detectar envíos de bots (demasiado rápidos)
+const ESPERA_ENTRE_ENVIOS = 60 * 1000; // 1 minuto entre solicitudes desde el mismo navegador
+
+function leerUltimoEnvio() {
+    try { return Number(localStorage.getItem("odm-ultimo-envio")) || 0; } catch (e) { return 0; }
+}
+function guardarUltimoEnvio() {
+    try { localStorage.setItem("odm-ultimo-envio", String(Date.now())); } catch (e) { /* sin almacenamiento: no pasa nada */ }
+}
+
+if (contactForm) contactForm.addEventListener("submit", function(event) {
     event.preventDefault(); // Evita recargar la página
 
     const statusMsg = document.getElementById("form-status");
-    const submitBtn = document.querySelector(".btn-submit");
+    const submitBtn = contactForm.querySelector(".btn-submit");
 
-    // Mostrar estado de carga
-    if (statusMsg) {
-        statusMsg.textContent = "⏳ Enviando mensaje...";
-        statusMsg.style.color = "#0066cc";
+    function mostrar(texto, color) {
+        if (statusMsg) {
+            statusMsg.textContent = texto;
+            statusMsg.style.color = color;
+        } else {
+            alert(texto);
+        }
     }
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Enviando...";
 
-    // Obtener valores del formulario
+    // 🛡️ Anti-spam 1: campo trampa invisible. Una persona no lo ve; un bot lo llena.
+    // Se finge que se envió para no darle pistas al bot.
+    const trampa = contactForm.querySelector('input[name="sitio_web"]');
+    if (trampa && trampa.value.trim() !== "") {
+        mostrar("✅ ¡Mensaje enviado! Te contactaremos pronto.", "green");
+        contactForm.reset();
+        return;
+    }
+
+    // 🛡️ Anti-spam 2: nadie completa el formulario en menos de 3 segundos
+    if (Date.now() - cargaPagina < 3000) {
+        mostrar("⏳ Espera un momento y vuelve a intentarlo.", "#b45309");
+        return;
+    }
+
+    // 🛡️ Anti-spam 3: máximo una solicitud por minuto desde el mismo navegador
+    const restante = ESPERA_ENTRE_ENVIOS - (Date.now() - leerUltimoEnvio());
+    if (restante > 0) {
+        mostrar(`⏳ Ya recibimos tu solicitud. Puedes enviar otra en ${Math.ceil(restante / 1000)} segundos.`, "#b45309");
+        return;
+    }
+
+    // Obtener valores del formulario (sin espacios sobrantes)
     const formData = {
-        nombre: document.getElementById("nombre").value,
-        apellidos: document.getElementById("apellidos").value,
-        telefono: document.getElementById("telefono").value,
-        email: document.getElementById("email").value,
+        nombre: document.getElementById("nombre").value.trim(),
+        apellidos: document.getElementById("apellidos").value.trim(),
+        telefono: document.getElementById("telefono").value.trim(),
+        email: document.getElementById("email").value.trim(),
         especialidad: document.getElementById("especialidad").value
     };
 
+    // ✔️ Validación: especialidad elegida (el campo se maneja con selector.js)
+    if (document.getElementById("especialidad").selectedIndex <= 0) {
+        mostrar("⚠️ Elige la especialidad que te interesa.", "#b91c1c");
+        const boton = contactForm.querySelector(".selector-boton");
+        if (boton) boton.focus();
+        return;
+    }
+
+    // ✔️ Validación: teléfono con al menos 6 dígitos
+    if (formData.telefono.replace(/\D/g, "").length < 6) {
+        mostrar("⚠️ Escribe un número de teléfono válido.", "#b91c1c");
+        document.getElementById("telefono").focus();
+        return;
+    }
+
+    // Mostrar estado de carga
+    mostrar("⏳ Enviando mensaje...", "#0066cc");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando...";
+
+    // Si EmailJS no cargó (CDN caído o bloqueado), se ofrece WhatsApp en vez de fallar en silencio
+    if (!window.emailjs) {
+        mostrar("❌ No se pudo enviar en este momento. Escríbenos por WhatsApp al +51 910 840 567.", "red");
+        return;
+    }
+
     // Enviar email
     emailjs.send("service_sst69v2", "template_s9ltvah", formData)
-        .then(function(response) {
+        .then(function() {
             // ✅ ÉXITO
-            console.log("✅ Éxito:", response);
-            
-            if (statusMsg) {
-                statusMsg.textContent = "✅ ¡Mensaje enviado! Te contactaremos pronto.";
-                statusMsg.style.color = "green";
-            } else {
-                alert("✅ ¡Mensaje enviado! Te contactaremos pronto.");
-            }
-            
+            guardarUltimoEnvio();
+            mostrar("✅ ¡Mensaje enviado! Te contactaremos pronto.", "green");
+
             // Limpiar formulario
-            document.getElementById("contact-form").reset();
-            
+            contactForm.reset();
+
             // Restaurar botón
             setTimeout(function() {
                 submitBtn.disabled = false;
@@ -125,19 +181,32 @@ document.getElementById("contact-form").addEventListener("submit", function(even
         })
         .catch(function(error) {
             // ❌ ERROR
-            console.error("❌ Error:", error);
-            
-            if (statusMsg) {
-                statusMsg.textContent = "❌ Error al enviar. Intenta de nuevo.";
-                statusMsg.style.color = "red";
-            } else {
-                alert("❌ Error al enviar. Intenta de nuevo.");
-            }
-            
+            console.error("❌ Error al enviar:", error);
+            mostrar("❌ Error al enviar. Intenta de nuevo o escríbenos por WhatsApp.", "red");
+
             // Restaurar botón
             submitBtn.disabled = false;
             submitBtn.textContent = "Enviar";
         });
+});
+
+
+// Botón "¿Cómo llegar?": abre Waze en otra pestaña y, si en 2 segundos no se abrió
+// (por ejemplo, sin la app), lleva a Google Maps. Antes estaba como onclick en el HTML.
+document.querySelectorAll(".btn-map[data-respaldo]").forEach((boton) => {
+    boton.addEventListener("click", () => {
+        setTimeout(() => {
+            window.location.href = boton.dataset.respaldo;
+        }, 2000);
+    });
+});
+
+
+// Botones que llevan a otra página o sección (antes onclick en el HTML)
+document.querySelectorAll("button[data-href]").forEach((boton) => {
+    boton.addEventListener("click", () => {
+        window.location.href = boton.dataset.href;
+    });
 });
 
 

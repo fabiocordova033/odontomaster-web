@@ -24,7 +24,7 @@ fetch("/data/casos.json")
 
 function renderCases(category) {
 
-    casesGrid.innerHTML = "";
+    casesGrid.replaceChildren(); // vacía la cuadrícula
 
     const filteredCases = category === "todos"
 
@@ -39,11 +39,13 @@ function renderCases(category) {
 
         div.classList.add("case-item");
 
-        div.innerHTML = `
-
-            <img src="${item.imagen}" alt="Caso Clinico">
-
-        `;
+        // La imagen se crea con createElement (no con innerHTML) para que ningún texto
+        // del JSON pueda convertirse en código dentro de la página
+        const img = document.createElement("img");
+        img.src = item.imagen;
+        img.alt = `Caso clínico de ${item.categoria}`;
+        img.loading = "lazy";
+        div.appendChild(img);
 
         casesGrid.appendChild(div);
 

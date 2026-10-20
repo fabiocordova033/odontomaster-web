@@ -1,0 +1,14 @@
+# Cabeceras de seguridad para Netlify y Cloudflare Pages (las aplican automáticamente al publicar).
+# Content-Security-Policy: solo se permite cargar código y contenido de estos orígenes:
+#   - cdn.jsdelivr.net: intl-tel-input (teléfono) y EmailJS
+#   - api.emailjs.com: envío del formulario
+#   - www.google.com / www.youtube.com: mapa y videos insertados
+# Si se agrega otro servicio externo (por ejemplo Meta Pixel), hay que añadir su origen aquí.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self'; connect-src 'self' https://api.emailjs.com; frame-src https://www.google.com https://www.youtube.com https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains

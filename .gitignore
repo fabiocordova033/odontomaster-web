@@ -1,0 +1,17 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configuración personal del editor
+*.code-workspace
+.vscode/
+.idea/
+
+# Claves y variables de entorno: nunca deben subirse al repositorio
+.env
+.env.*
+
+# Dependencias y archivos temporales
+node_modules/
+*.log
