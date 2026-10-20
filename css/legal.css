@@ -1,4 +1,4 @@
-/* ================== PÁGINAS LEGALES (privacidad y términos) ================== */
+/* ================== PÁGINAS LEGALES (privacidad, términos y cookies) ================== */
 /* Se carga después de servicios-especificos.css (navbar, footer y WhatsApp) */
 
 .seccion-legal {
@@ -66,6 +66,47 @@
 .legal-contenedor a {
   color: #0d9488;
   font-weight: 600;
+}
+
+.legal-contenedor h3 {
+  font-size: 17px;
+  color: #0f172a;
+  margin: 22px 0 8px;
+}
+
+/* Tablas (Política de Cookies) */
+.legal-tabla {
+  margin: 0 0 14px;
+}
+
+.legal-tabla table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.legal-tabla th,
+.legal-tabla td {
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.legal-tabla th {
+  background: #f0fdfa;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.legal-tabla code {
+  font-size: 13px;
+  background: #f3f4f6;
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: #0f172a;
 }
 
 /* Datos que la clínica debe completar antes de publicar */
@@ -190,6 +231,41 @@ html {
 
   .legal-contenedor ul {
     margin-left: 18px;
+  }
+
+  /* Tablas: cada fila se convierte en una tarjeta (sin scroll horizontal) */
+  .legal-tabla thead {
+    display: none;
+  }
+
+  .legal-tabla table,
+  .legal-tabla tbody,
+  .legal-tabla tr,
+  .legal-tabla td {
+    display: block;
+    width: 100%;
+  }
+
+  .legal-tabla tr {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+  }
+
+  .legal-tabla td {
+    padding: 6px 0;
+    border-bottom: none;
+  }
+
+  .legal-tabla td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0d9488;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   /* Botón "Volver al inicio" a todo el ancho: más fácil de tocar */

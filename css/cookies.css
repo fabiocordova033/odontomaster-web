@@ -1,0 +1,123 @@
+/* ================== AVISO DE COOKIES (compartido por todas las páginas) ================== */
+/* La lógica está en scripts/cookies.js */
+
+.aviso-cookies {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 9000; /* sobre el botón de WhatsApp y el menú; debajo del preloader */
+    max-width: 440px;
+    padding: 20px 22px;
+    background: #ffffff;
+    color: #374151;
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.aviso-cookies.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.aviso-cookies[hidden] {
+    display: none;
+}
+
+.aviso-cookies-texto {
+    margin: 0 0 16px;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.aviso-cookies-texto a {
+    color: #0d9488;
+    font-weight: 600;
+}
+
+.aviso-cookies-botones {
+    display: flex;
+    gap: 10px;
+}
+
+/* Los dos botones con el mismo tamaño: aceptar y rechazar deben ser igual de fáciles */
+.aviso-cookies-btn {
+    flex: 1;
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.aviso-cookies-rechazar {
+    background: #ffffff;
+    color: #0f172a;
+    border: 2px solid #cbd5e1;
+}
+
+.aviso-cookies-rechazar:hover {
+    border-color: #94a3b8;
+}
+
+.aviso-cookies-aceptar {
+    background: #0d9488;
+    color: #ffffff;
+    border: 2px solid #0d9488;
+}
+
+.aviso-cookies-aceptar:hover {
+    background: #0b766c;
+    border-color: #0b766c;
+}
+
+/* Botón "Configurar cookies" de la Política de Cookies */
+.legal-boton-cookies {
+    display: inline-block;
+    margin: 4px 0 12px;
+    padding: 12px 22px;
+    background: #ffffff;
+    color: #0d9488;
+    border: 2px solid #0d9488;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.legal-boton-cookies:hover {
+    background: #f0fdfa;
+}
+
+/* ================== RESPONSIVE ================== */
+/* Mismos cortes que el resto de la web: 768 / 480 */
+
+/* TABLETS EN VERTICAL Y CELULARES: el aviso ocupa todo el ancho abajo */
+@media (max-width: 768px) {
+    .aviso-cookies {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        max-width: none;
+        padding: 18px;
+    }
+}
+
+/* CELULARES */
+@media (max-width: 480px) {
+    .aviso-cookies-texto {
+        font-size: 14px;
+    }
+
+    .legal-boton-cookies {
+        display: block;
+        width: 100%;
+    }
+}

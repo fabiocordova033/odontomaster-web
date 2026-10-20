@@ -167,6 +167,8 @@ if (contactForm) contactForm.addEventListener("submit", function(event) {
         .then(function() {
             // ✅ ÉXITO
             guardarUltimoEnvio();
+            // Cuenta la solicitud en Google Analytics (solo si el visitante aceptó las cookies)
+            if (window.odmEvento) window.odmEvento("generate_lead", { especialidad: formData.especialidad });
             mostrar("✅ ¡Mensaje enviado! Te contactaremos pronto.", "green");
 
             // Limpiar formulario

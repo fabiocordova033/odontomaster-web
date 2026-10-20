@@ -77,12 +77,17 @@
   </url>
   <url>
     <loc>https://DOMINIO-PENDIENTE/pages/privacidad.html</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://DOMINIO-PENDIENTE/pages/terminos.html</loc>
     <lastmod>2026-10-17</lastmod>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://DOMINIO-PENDIENTE/pages/cookies.html</loc>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.2</priority>
   </url>
 </urlset>
