@@ -1142,9 +1142,8 @@ input, select {
 /* Tablets: el carrusel toma la misma proporción que las fotos, así se ven completas */
 @media (max-width: 1024px) {
     .hero {
-        height: auto;
-        aspect-ratio: 16 / 9;
-        min-height: 420px;
+        /* Alto = proporción 16:9 del ancho (foto completa); mínimo 400px para que entre el texto */
+        height: max(400px, 56.25vw);
         padding-top: 70px; /* espacio para el navbar fijo */
     }
 
@@ -1162,8 +1161,7 @@ input, select {
    sobre la misma foto difuminada (la pone script.js en --slide-actual) */
 @media (max-width: 480px) {
     .hero {
-        aspect-ratio: auto;
-        min-height: 0;
+        height: auto;
         justify-content: flex-start;
         gap: 22px;
         padding: 60px 0 36px; /* 60px: alto del navbar fijo */
