@@ -388,6 +388,18 @@ max-width: 900px;
     width: 100%;
 }
 
+/* Los campos pueden encogerse: sin esto, entre 769 y ~780px el formulario se salía 5px de la pantalla */
+.form-group {
+    min-width: 0;
+}
+
+.form-group input,
+.form-group .iti {
+    width: 100%;
+    min-width: 0;
+}
+
+
 /* INPUTS */
 input, select {
     padding: 12px;

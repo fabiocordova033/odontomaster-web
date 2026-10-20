@@ -517,3 +517,25 @@ body::before {
         font-size: 15px;
     }
 }
+
+
+/* ================== PERFIL EN CELULARES ================== */
+/* La foto y la biografía tenían min-width de 300px y 350px y se salían de la pantalla
+   en celulares de 360px o menos */
+@media (max-width: 768px) {
+    .doctor-left,
+    .doctor-right {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .doctor-profile {
+        padding: 90px 16px 50px;
+        gap: 40px;
+    }
+
+    .doctor-right h1 {
+        font-size: 28px;
+    }
+}
