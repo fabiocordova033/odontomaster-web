@@ -7,10 +7,16 @@ if (slides.length > 0) {
 
     let index = 0;
 
+    const hero = document.querySelector('.hero');
+
     function showSlide(i) {
         slides.forEach(slide => slide.classList.remove('active'));
         slides[i].classList.add('active');
+        // Foto actual como fondo difuminado del hero en celular (ver styles.css)
+        if (hero) hero.style.setProperty('--slide-actual', `url("${slides[i].src}")`);
     }
+
+    showSlide(0);
 
     next.addEventListener('click', () => {
         index = (index + 1) % slides.length;

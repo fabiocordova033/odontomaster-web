@@ -1134,3 +1134,107 @@ input, select {
         font-size: 32px;
     }
 }
+
+/* ================== CARRUSEL DEL INICIO EN TABLET Y CELULAR ================== */
+/* Las fotos del carrusel son horizontales (16:9). Con el alto fijo de 950px el navegador
+   las recortaba a los lados: en celular solo se veía ~20% de la foto y en tablet ~50%. */
+
+/* Tablets: el carrusel toma la misma proporción que las fotos, así se ven completas */
+@media (max-width: 1024px) {
+    .hero {
+        height: auto;
+        aspect-ratio: 16 / 9;
+        min-height: 420px;
+        padding-top: 70px; /* espacio para el navbar fijo */
+    }
+
+    /* Botones legibles sobre la foto (antes: texto azul sobre la imagen) */
+    .buttons button {
+        background: rgba(255, 255, 255, 0.92);
+    }
+
+    .buttons button:hover {
+        background: #4FC3F7;
+    }
+}
+
+/* Celulares: la foto completa arriba y el texto con los botones debajo,
+   sobre la misma foto difuminada (la pone script.js en --slide-actual) */
+@media (max-width: 480px) {
+    .hero {
+        aspect-ratio: auto;
+        min-height: 0;
+        justify-content: flex-start;
+        gap: 22px;
+        padding: 60px 0 36px; /* 60px: alto del navbar fijo */
+        background: #1e293b;
+    }
+
+    /* Fondo: la foto actual difuminada y oscurecida */
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: -30px;
+        background: var(--slide-actual) center / cover no-repeat;
+        filter: blur(18px) brightness(0.55);
+        z-index: 0;
+    }
+
+    /* Sin la capa gris encima de la foto: ahora el texto no va sobre ella */
+    .hero::after {
+        display: none;
+    }
+
+    .hero > br {
+        display: none;
+    }
+
+    .hero-image {
+        position: relative;
+        order: 0;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        z-index: 1;
+    }
+
+    .hero-text {
+        order: 1;
+        padding: 0 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.75rem;
+        line-height: 1.25;
+        margin-bottom: 8px;
+    }
+
+    .hero-text p {
+        font-size: 15px;
+    }
+
+    .buttons {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .buttons button {
+        width: 100%;
+        max-width: 320px;
+        min-height: 46px;
+        padding: 10px 20px;
+        margin: 0;
+        font-size: 16px;
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 360px) {
+    .hero-text h1 {
+        font-size: 1.55rem;
+    }
+}
