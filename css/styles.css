@@ -1085,6 +1085,12 @@ input, select {
         min-height: auto;
     }
 
+    /* Lo mismo en Nuestro Equipo: tenía min-height 80vh y en pantallas altas
+       quedaba una franja vacía entre la foto y "Visítanos" */
+    .team-section {
+        min-height: auto;
+    }
+
     .services-right {
         flex-direction: row;
         justify-content: center;
