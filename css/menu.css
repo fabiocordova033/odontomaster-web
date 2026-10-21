@@ -1,5 +1,11 @@
 /* ================== MENÚ HAMBURGUESA (compartido por todas las páginas) ================== */
-/* Se carga después del CSS de cada página. El botón ☰ lo controla scripts/menu.js */
+/* Se carga después del CSS de cada página. El botón ☰ y el panel los controla scripts/menu.js */
+
+/* El panel solo existe en celular y tablet */
+.menu-panel,
+.menu-fondo {
+    display: none;
+}
 
 /* Cortes responsive del sitio (iguales en todos los CSS; píxeles CSS, iguales en iOS y Android):
    1024px tablets grandes y horizontal · 768px tablets en vertical · 480px celulares · 360px celulares pequeños */
@@ -13,33 +19,210 @@
         line-height: 1;
         padding: 4px 8px;
         user-select: none;
+        -webkit-tap-highlight-color: transparent;
     }
 
+    /* Los enlaces del navbar de PC se muestran dentro del panel */
     .navbar nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        display: none;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .navbar nav.active {
-        display: flex;
-    }
-
-    .navbar nav a {
-        margin: 0;
-        padding: 14px 20px;
-        font-size: 16px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: none !important;
     }
 
     /* En móvil y tablet ya está el botón flotante de WhatsApp */
     .btn-whatsapp,
     button.btn-whatsapp {
         display: none !important;
+    }
+
+    /* ---------- Fondo oscurecido y difuminado detrás del panel ---------- */
+    .menu-fondo {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 9500; /* sobre el navbar, WhatsApp y el aviso de cookies; debajo del preloader */
+        background: rgba(15, 18, 30, 0.45);
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+
+    .menu-fondo.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* ---------- Panel que entra desde la izquierda ---------- */
+    .menu-panel {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 9600;
+        width: min(80vw, 360px);
+        padding: 22px 24px 40px;
+        background: #232634; /* mismo color que el preloader */
+        color: #ffffff;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        text-align: left;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        box-shadow: 8px 0 30px rgba(0, 0, 0, 0.35);
+        transform: translateX(-100%);
+        visibility: hidden;
+        transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0.35s;
+    }
+
+    .menu-panel.abierto {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    /* styles.css (inicio) tiene una regla vieja "nav { display: none; ... }" del menú anterior:
+       aquí se anula para las secciones del panel */
+    .menu-panel nav {
+        position: static;
+        display: block;
+        width: auto;
+        max-height: none;
+        overflow: visible;
+        background: none;
+    }
+
+    /* Barra de scroll delgada (como en la referencia) */
+    .menu-panel {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+    }
+
+    /* La página de atrás no se desplaza mientras el menú está abierto */
+    html.menu-abierto,
+    html.menu-abierto body {
+        overflow: hidden;
+    }
+
+    /* Botón ✕ arriba a la derecha */
+    .menu-cerrar {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 44px;
+        height: 44px;
+        border: none;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 50%;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .menu-cerrar:hover,
+    .menu-cerrar:focus-visible {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .menu-panel a {
+        display: block;
+        color: #ffffff;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Inicio, Servicios, Nosotros, Contacto y el título "Tratamientos" */
+    .menu-titulo {
+        margin: 0;
+        padding: 9px 0;
+        font-size: 20px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    .menu-principal {
+        padding-right: 40px; /* que "Inicio" no quede debajo de la ✕ */
+    }
+
+    .menu-tratamientos {
+        margin-top: 18px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* Categoría: solo un título, sin enlace */
+    .menu-categoria {
+        margin: 22px 0 4px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+    }
+
+    .menu-titulo-seccion + .menu-categoria {
+        margin-top: 10px;
+    }
+
+    /* Tratamiento */
+    .menu-item {
+        padding: 10px 0;
+        font-size: 18px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.92) !important;
+    }
+
+    .menu-panel a:hover,
+    .menu-panel a:focus-visible {
+        color: #7dd3fc !important;
+    }
+
+    /* Página en la que está el visitante */
+    .menu-panel a[aria-current="page"] {
+        color: #7dd3fc !important;
+    }
+
+    /* Las opciones aparecen una tras otra al abrir */
+    .menu-panel.abierto .menu-principal > *,
+    .menu-panel.abierto .menu-tratamientos > * {
+        animation: menu-aparecer 0.4s ease both;
+    }
+
+    .menu-panel.abierto .menu-principal > :nth-child(2) { animation-delay: 0.04s; }
+    .menu-panel.abierto .menu-principal > :nth-child(3) { animation-delay: 0.08s; }
+    .menu-panel.abierto .menu-principal > :nth-child(4) { animation-delay: 0.12s; }
+    .menu-panel.abierto .menu-tratamientos > * { animation-delay: 0.16s; }
+}
+
+@keyframes menu-aparecer {
+    from { opacity: 0; transform: translateX(-12px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Sin animaciones para quien las tiene desactivadas en su teléfono */
+@media (prefers-reduced-motion: reduce) {
+    .menu-panel,
+    .menu-fondo {
+        transition: none !important;
+    }
+
+    .menu-panel * {
+        animation: none !important;
+    }
+}
+
+/* CELULARES */
+@media (max-width: 480px) {
+    .menu-panel {
+        width: 82vw;
+        padding: 18px 20px 36px;
+    }
+
+    .menu-titulo {
+        font-size: 19px;
+    }
+
+    .menu-item {
+        font-size: 17px;
     }
 }
