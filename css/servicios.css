@@ -1,118 +1,13 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-html{
-    scroll-behavior: smooth;
-}
-body{
-    background-image: url("/imagenes/Fondomejorado.jpg"); /* tu imagen */
-    background-size: cover;        /* 🔥 ocupa toda la pantalla */
-    background-position: center;   /* centrada */
-    background-repeat: no-repeat;  /* no se repite */
-    background-attachment: fixed;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.3); /* oscurece */
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-.menu-toggle {
-    display: none;
-    margin-left: auto;
-    font-size: 28px;
-    cursor: pointer;
-}
-.logo img{
-    width: 20px;
-    height: 20px;
-}
-.navbar {
-    display: flex;
-    grid-template-columns: 1fr auto 1fr;
-    background: transparent;
-    color:#ffffff;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 5%;
-    width: 100%;
-    z-index: 10;
-    position: fixed;
-    top:0;
-     background: linear-gradient(
-        to bottom,
-        rgba(69, 111, 250, 1),  /* arriba oscuro */
-        rgba(255, 255, 255, 0)  /* abajo transparente */
-    );
-}
-
-.navbar nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-}
-
-.navbar input {
-    padding: 5px 10px;
-}
-
-.btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    justify-self: end;
-    gap: 10px;
-    color: rgb(255, 255, 255);
-    background: linear-gradient(135deg, #25D366 0%, #20BA5A 100%);
-    border: none;
-    padding: 12px 20px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 15px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-    letter-spacing: 0.5px;
-}
-
-.btn-whatsapp:hover {
-    background: linear-gradient(135deg, #20BA5A 0%, #1DA851 100%);
-    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
-    transform: translateY(-2px);
-}
-
-.btn-whatsapp:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(37, 211, 102, 0.3);
-}
-
-.btn-whatsapp .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-whatsapp .icon img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-}
+/* ================== SERVICIOS (servicios.html) ================== */
+/* Solo lo propio de esta página. Lo común (tipografía, colores, navbar, formulario,
+   mapa, footer y WhatsApp) está en general.css, que se carga antes. */
 
 /* ======= SECCIÓN TRATAMIENTOS CIRCULARES ======= */
 
 .tratamientos-circulares {
   padding: 100px 20px 60px; /* 100px arriba: el título no queda debajo del navbar fijo */
   background: #ffffff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--fuente);
 }
 
 .tc-container {
@@ -224,7 +119,6 @@ body::before {
     text-align: center;
 }
 
-
 /* TITULO */
 
 .clinical-cases h2 {
@@ -233,7 +127,6 @@ body::before {
 
     margin-bottom: 40px;
 }
-
 
 /* SELECT */
 
@@ -254,7 +147,6 @@ body::before {
     outline: none;
 }
 
-
 /* GRID */
 
 .cases-grid {
@@ -269,7 +161,6 @@ body::before {
 
     margin: 0 auto;
 }
-
 
 /* CARD IMAGEN */
 
@@ -290,7 +181,6 @@ body::before {
     position: relative;
 }
 
-
 /* IMAGEN */
 
 .case-item img {
@@ -306,14 +196,12 @@ body::before {
     display: block;
 }
 
-
 /* HOVER */
 
 .case-item:hover img {
 
     transform: scale(1.08);
 }
-
 
 /* ========================= */
 /* RESPONSIVE TABLET */
@@ -335,7 +223,6 @@ body::before {
         transform-origin: top center;
     }
 }
-
 
 /* ========================= */
 /* RESPONSIVE MOVIL */

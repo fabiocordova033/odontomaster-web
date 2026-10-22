@@ -1,9 +1,9 @@
 /* ================== PÁGINAS LEGALES (privacidad, términos y cookies) ================== */
-/* Se carga después de servicios-especificos.css (navbar, footer y WhatsApp) */
+/* Navbar, footer y WhatsApp están en general.css */
 
 .seccion-legal {
   padding: 120px 20px 60px; /* espacio para el navbar fijo */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--fuente);
 }
 
 .legal-contenedor {
@@ -132,12 +132,6 @@
   background: #0b766c;
 }
 
-/* Evita que iPhone/iPad agranden el texto al girar la pantalla */
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
 /* Correos o textos largos no se salen de la caja en pantallas chicas */
 .legal-contenedor {
   overflow-wrap: break-word;
@@ -184,11 +178,6 @@ html {
     margin-top: 28px;
   }
 
-  .footer {
-    flex-direction: column;
-    gap: 6px;
-    padding: 20px;
-  }
 }
 
 /* CELULARES (iPhone y Android) */
@@ -302,13 +291,3 @@ html {
   }
 }
 
-/* PANTALLAS TÁCTILES: enlaces del footer de al menos 44px de alto
-   (mínimo recomendado por Apple y por Google para tocar con el dedo) */
-@media (hover: none) and (pointer: coarse) {
-  .footer div a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    padding: 0 8px;
-  }
-}

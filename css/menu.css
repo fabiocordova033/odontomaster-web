@@ -64,7 +64,7 @@
         padding: 22px 24px 40px;
         background: #232634; /* mismo color que el preloader */
         color: #ffffff;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: var(--fuente);
         text-align: left;
         overflow-y: auto;
         overscroll-behavior: contain;
@@ -77,17 +77,6 @@
     .menu-panel.abierto {
         transform: translateX(0);
         visibility: visible;
-    }
-
-    /* styles.css (inicio) tiene una regla vieja "nav { display: none; ... }" del menú anterior:
-       aquí se anula para las secciones del panel */
-    .menu-panel nav {
-        position: static;
-        display: block;
-        width: auto;
-        max-height: none;
-        overflow: visible;
-        background: none;
     }
 
     /* Barra de scroll delgada (como en la referencia) */

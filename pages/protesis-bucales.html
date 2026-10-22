@@ -19,14 +19,14 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Prótesis dentales en Odontomaster" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preload" href="/fuentes/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/servicios-especificos.css" />
-    <link rel="stylesheet" href="/css/contacto.css" />
     <link rel="stylesheet" href="/css/selector.css" />
-    <link rel="stylesheet" href="/css/formulario.css" />
     <link rel="stylesheet" href="/css/menu.css" />
     <link rel="stylesheet" href="/css/cookies.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/logo.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css" integrity="sha384-dtmSEPuKDExMe4jB/GN1CLwChZhgGsg8FrOtj405iysBoklNdIsyVGDeWutzRVCC" crossorigin="anonymous" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/logo.png" />
   </head>
   <body>
     <!-- PRELOADER -->
@@ -142,6 +142,7 @@
       <!-- DERECHA -->
       <div class="contact-form">
         <h2>¡Estás a un paso de transformar tu sonrisa!</h2>
+        <p class="contact-subtitulo">Completa el formulario y llévate una consulta gratis.</p>
 
         <form id="contact-form">
           <div class="form-row">
@@ -171,6 +172,7 @@
             <label>Especialidades</label>
             <select id="especialidad">
               <option>Selecciona</option>
+                <option>Ninguna (solo consulta)</option>
                 <option>Blanqueamiento</option>
                 <option>Carillas Dentales</option>
                 <option>Cirugía Maxilofacial</option>
@@ -210,8 +212,14 @@
       ></iframe>
     </section>
     <footer class="footer">
-      <p>© 2026 Odontomaster. Todos los derechos reservados.</p>
-      <div>
+      <p class="footer-copy">© 2026 Odontomaster. Todos los derechos reservados.</p>
+      <nav class="footer-nav" aria-label="Páginas">
+        <a href="/index.html">Inicio</a>
+        <a href="/pages/servicios.html">Servicios</a>
+        <a href="/pages/team.html">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div class="footer-legal">
         <a href="/pages/privacidad.html">Política de Privacidad</a>
         <a href="/pages/terminos.html">Términos y Condiciones</a>
         <a href="/pages/cookies.html">Política de Cookies</a>
