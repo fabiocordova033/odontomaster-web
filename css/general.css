@@ -243,7 +243,9 @@ body::before {
 }
 
 .btn-map {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     margin: 10px 0;
     padding: 8px 15px;
     background: var(--color-azul-boton);
@@ -251,6 +253,13 @@ body::before {
     border-radius: var(--radio-boton);
     text-decoration: none;
     font-size: 14px;
+}
+
+/* Logo de Waze dentro del botón: el archivo es negro, el filtro lo vuelve blanco como el texto */
+.btn-map-icono {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
 }
 
 /* Derecha: formulario */
