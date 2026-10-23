@@ -3,7 +3,8 @@
 #   - cdn.jsdelivr.net: intl-tel-input (teléfono) y EmailJS
 #   - api.emailjs.com: envío del formulario
 #   - www.google.com / www.youtube.com: mapa y videos insertados
-#   - googletagmanager.com / google-analytics.com: Google Analytics (solo se carga si el visitante acepta las cookies)
+#   - googletagmanager.com / google-analytics.com: Google Tag Manager y Google Analytics (solo se cargan si el visitante acepta las cookies).
+#     Si en GTM se agregan etiquetas de "HTML personalizado" o de otros servicios (Meta, Google Ads), hay que añadir sus orígenes aquí.
 # Si se agrega otro servicio externo (por ejemplo Meta Pixel), hay que añadir su origen aquí.
 
 /*

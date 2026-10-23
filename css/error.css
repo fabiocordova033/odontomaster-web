@@ -1,0 +1,119 @@
+/* ================== PÁGINA NO ENCONTRADA (404.html) ================== */
+/* Solo lo propio de esta página. Lo común (tipografía, colores, navbar, footer y
+   botones flotantes) está en general.css, que se carga antes. */
+
+.seccion-error {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 70px; /* 120px arriba: espacio para el navbar fijo */
+}
+
+.error-tarjeta {
+    max-width: 620px;
+    width: 100%;
+    padding: 48px 44px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: var(--radio-tarjeta);
+    box-shadow: var(--sombra-tarjeta);
+    text-align: center;
+}
+
+.error-codigo {
+    font-size: 88px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--color-acento);
+    margin-bottom: 12px;
+}
+
+.error-tarjeta h1 {
+    font-size: 30px;
+    line-height: 1.25;
+    color: var(--color-texto);
+    margin-bottom: 14px;
+}
+
+.error-texto {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--color-texto-suave);
+    margin-bottom: 28px;
+}
+
+.error-botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.error-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 10px 22px;
+    border-radius: var(--radio-pildora);
+    border: 2px solid var(--color-acento);
+    color: var(--color-acento);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.error-btn:hover {
+    background: rgba(74, 108, 255, 0.08);
+}
+
+.error-btn-principal {
+    background: var(--color-acento);
+    color: var(--color-blanco);
+}
+
+.error-btn-principal:hover {
+    background: #3a5ae8;
+}
+
+.error-btn-whatsapp {
+    border-color: var(--color-whatsapp);
+    color: #128c4a;
+}
+
+.error-btn-whatsapp:hover {
+    background: rgba(37, 211, 102, 0.1);
+}
+
+/* ================== RESPONSIVE ================== */
+/* CELULARES: botones uno debajo del otro, a todo el ancho */
+@media (max-width: 480px) {
+    .seccion-error {
+        padding: 100px 16px 50px;
+    }
+
+    .error-tarjeta {
+        padding: 36px 22px;
+        border-radius: 16px;
+    }
+
+    .error-codigo {
+        font-size: 72px;
+    }
+
+    .error-tarjeta h1 {
+        font-size: 24px;
+    }
+
+    .error-texto {
+        font-size: 16px;
+    }
+
+    .error-botones {
+        flex-direction: column;
+    }
+
+    .error-btn {
+        width: 100%;
+    }
+}

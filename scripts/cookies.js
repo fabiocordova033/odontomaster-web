@@ -1,12 +1,12 @@
-// ================== AVISO DE COOKIES + GOOGLE ANALYTICS ==================
-// Google Analytics solo se carga si el visitante pulsa "Aceptar".
-// Mientras no decida (o si rechaza) no se carga nada de Google Analytics ni se crean sus cookies.
+// ================== AVISO DE COOKIES + GOOGLE TAG MANAGER / ANALYTICS ==================
+// Google Tag Manager (o Google Analytics) solo se carga si el visitante pulsa "Aceptar".
+// Mientras no decida (o si rechaza) no se carga nada de Google ni se crean sus cookies.
 // La decisión se guarda en el navegador (localStorage "odm-cookies") y se puede cambiar
 // desde la Política de Cookies o con cualquier elemento que tenga data-cookies-config.
 
-// 👉 Pega aquí el ID de medición de tu propiedad de Google Analytics 4 (empieza con "G-").
-//    Mientras sea el de ejemplo, el aviso se muestra pero no se envía nada a Google.
-const GA_ID = "G-XXXXXXXXXX";
+// 👉 ID de Google: sirve uno de Google Tag Manager ("GTM-...") o de Google Analytics 4 ("G-...").
+//    Con GTM, la etiqueta de Google Analytics se configura dentro del contenedor de GTM.
+const GA_ID = "GTM-TKSLMSDH";
 
 const CLAVE_COOKIES = "odm-cookies";
 const VIGENCIA_DECISION = 365 * 24 * 60 * 60 * 1000; // se vuelve a preguntar después de 1 año
@@ -27,22 +27,32 @@ function guardarDecisionCookies(valor) {
     } catch (e) { /* sin almacenamiento: se volverá a preguntar en la próxima visita */ }
 }
 
+const ES_GTM = /^GTM-[A-Z0-9]+$/.test(GA_ID);
+
 function idAnalyticsValido() {
-    return /^G-[A-Z0-9]+$/.test(GA_ID) && GA_ID !== "G-XXXXXXXXXX";
+    return (ES_GTM || /^G-[A-Z0-9]+$/.test(GA_ID)) && GA_ID !== "G-XXXXXXXXXX";
 }
 
-// Carga Google Analytics (solo una vez)
+// Carga Google Tag Manager o Google Analytics (solo una vez)
+let googleCargado = false;
 function cargarAnalytics() {
-    if (!idAnalyticsValido() || window.gtag) return;
+    if (!idAnalyticsValido() || googleCargado) return;
+    googleCargado = true;
 
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag("js", new Date());
-    window.gtag("config", GA_ID);
-
     const script = document.createElement("script");
     script.async = true;
-    script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_ID);
+
+    if (ES_GTM) {
+        // Mismo arranque que el código oficial de GTM, sin script en línea (lo bloquearía la seguridad de _headers)
+        window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+        script.src = "https://www.googletagmanager.com/gtm.js?id=" + encodeURIComponent(GA_ID);
+    } else {
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag("js", new Date());
+        window.gtag("config", GA_ID);
+        script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_ID);
+    }
     document.head.appendChild(script);
 }
 
@@ -64,8 +74,11 @@ function borrarCookiesAnalytics() {
 }
 
 // Envía un evento a Analytics solo si el visitante aceptó (lo usa script.js al enviar el formulario)
+// Con GTM llega como "Evento personalizado" (generate_lead, contacto_whatsapp, contacto_llamada)
 window.odmEvento = function (nombre, datos) {
-    if (window.gtag && leerDecisionCookies() === "aceptadas") window.gtag("event", nombre, datos || {});
+    if (!googleCargado || leerDecisionCookies() !== "aceptadas") return;
+    if (ES_GTM) window.dataLayer.push(Object.assign({ event: nombre }, datos || {}));
+    else if (window.gtag) window.gtag("event", nombre, datos || {});
 };
 
 // ---------- Aviso (se arma con JavaScript para no repetir el HTML en todas las páginas) ----------
@@ -110,7 +123,7 @@ function crearAviso() {
     });
 
     rechazar.addEventListener("click", () => {
-        const yaHabiaAceptado = !!window.gtag;
+        const yaHabiaAceptado = googleCargado;
         guardarDecisionCookies("rechazadas");
         borrarCookiesAnalytics();
         ocultarAviso(aviso);
@@ -153,10 +166,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Clics en WhatsApp: cuentan como contacto en Analytics (solo si se aceptaron las cookies)
+    // Clics en WhatsApp y en Llamar: cuentan como contacto en Analytics (solo si se aceptaron las cookies)
     document.querySelectorAll('a[href*="wa.me"]').forEach((enlace) => {
         enlace.addEventListener("click", () => {
             window.odmEvento("contacto_whatsapp", { pagina: location.pathname });
+        });
+    });
+    document.querySelectorAll('a[href^="tel:"]').forEach((enlace) => {
+        enlace.addEventListener("click", () => {
+            window.odmEvento("contacto_llamada", { pagina: location.pathname });
         });
     });
 });

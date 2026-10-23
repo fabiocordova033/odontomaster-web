@@ -15,7 +15,7 @@ fetch("/data/casos.json")
 
         clinicalCases = data;
 
-        renderCases("Endodoncia");
+        renderCases(categorySelect.value); // al entrar: todos los casos
 
     });
 
@@ -26,7 +26,8 @@ function renderCases(category) {
 
     casesGrid.replaceChildren(); // vacía la cuadrícula
 
-    const filteredCases = category === "todos"
+    // "" (Selecciona una opción) o "todos": se muestran todos los casos
+    const filteredCases = !category || category === "todos"
 
         ? clinicalCases
 
@@ -50,6 +51,14 @@ function renderCases(category) {
         casesGrid.appendChild(div);
 
     });
+
+    // Categoría sin fotos todavía: aviso en vez de una cuadrícula vacía
+    if (filteredCases.length === 0) {
+        const aviso = document.createElement("p");
+        aviso.className = "cases-vacio";
+        aviso.textContent = "Pronto publicaremos casos de esta especialidad. Pregúntanos por WhatsApp y te mostramos resultados.";
+        casesGrid.appendChild(aviso);
+    }
 }
 
 

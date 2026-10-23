@@ -177,7 +177,7 @@ if (contactForm) contactForm.addEventListener("submit", function(event) {
 
     // Si EmailJS no cargó (CDN caído o bloqueado), se ofrece WhatsApp en vez de fallar en silencio
     if (!window.emailjs) {
-        mostrar("❌ No se pudo enviar en este momento. Escríbenos por WhatsApp al +51 910 840 567.", "red");
+        mostrar("❌ No se pudo enviar en este momento. Escríbenos por WhatsApp al +51 973 791 164.", "red");
         return;
     }
 
@@ -208,7 +208,7 @@ if (contactForm) contactForm.addEventListener("submit", function(event) {
                 mostrar("⏳ Espera unos segundos antes de volver a enviar.", "#b45309");
             } else if (error && error.status === 451) {
                 // Navegador automático (bot) o sin idioma configurado
-                mostrar("❌ No se pudo enviar desde este navegador. Escríbenos por WhatsApp al +51 910 840 567.", "red");
+                mostrar("❌ No se pudo enviar desde este navegador. Escríbenos por WhatsApp al +51 973 791 164.", "red");
             } else {
                 mostrar("❌ Error al enviar. Intenta de nuevo o escríbenos por WhatsApp.", "red");
             }
@@ -253,12 +253,16 @@ window.addEventListener("load", function () {
 
 // FADE OUT AL NAVEGAR
 document.addEventListener("DOMContentLoaded", function () {
-  const links = document.querySelectorAll("a[href]:not([href^='#']):not([target='_blank'])");
+  // Sin tel: ni mailto: abren el teléfono o el correo y la página sigue abierta: si se desvaneciera,
+  // al volver el visitante vería la página en blanco
+  const links = document.querySelectorAll("a[href]:not([href^='#']):not([target='_blank']):not([href^='tel:']):not([href^='mailto:'])");
 
   links.forEach(link => {
     link.addEventListener("click", function (e) {
       const url = this.getAttribute("href");
       if (!url || url.startsWith("javascript:")) return;
+      // Ctrl/Cmd + clic o clic con la rueda: abrir en otra pestaña, sin desvanecer esta
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
 
       e.preventDefault();
       document.body.classList.add("fade-out");
@@ -268,5 +272,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 400); // mismo tiempo que la transición del body
     });
   });
+});
+
+// Al volver con el botón "Atrás", el navegador puede restaurar la página tal como quedó (desvanecida)
+window.addEventListener("pageshow", function (e) {
+  if (e.persisted) document.body.classList.remove("fade-out");
 });
 

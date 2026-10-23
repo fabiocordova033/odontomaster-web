@@ -441,6 +441,12 @@ body::before {
     height: 30px;
 }
 
+/* ================== BOTÓN FLOTANTE DE LLAMAR ================== */
+/* Solo en celular y tablet (en PC no se puede llamar tocando). Va encima del de WhatsApp */
+.llamar-float {
+    display: none;
+}
+
 
 /* ================== RESPONSIVE ================== */
 
@@ -489,13 +495,34 @@ body::before {
         text-align: center;
     }
 
+    .llamar-float {
+        position: fixed;
+        right: 24px;
+        bottom: 92px;
+        z-index: 1000;
+        width: 52px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-azul-boton);
+        color: var(--color-blanco);
+        border-radius: 50%;
+        box-shadow: var(--sombra-flotante);
+    }
+
+    .llamar-float svg {
+        width: 24px;
+        height: 24px;
+    }
+
     /* Footer: todo a la izquierda, uno debajo del otro (como el menú hamburguesa) */
     .footer {
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
         gap: 18px;
-        padding: 28px 24px 96px; /* 96px abajo: el botón flotante de WhatsApp no tapa nada */
+        padding: 28px 24px 160px; /* 160px abajo: los botones flotantes de Llamar y WhatsApp no tapan nada */
     }
 
     .footer-nav,
