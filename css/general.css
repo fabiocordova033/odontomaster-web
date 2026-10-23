@@ -28,6 +28,7 @@
     --color-azul: #456ffa;          /* navbar */
     --color-azul-boton: #2f80ed;    /* botón "¿Cómo llegar?" */
     --color-acento: #4a6cff;        /* enlaces y detalles del formulario */
+    --color-celeste: #7dd3fc;       /* detalles sobre fondo oscuro (preguntas frecuentes, menú) */
     --color-whatsapp: #25d366;
     --color-whatsapp-2: #20ba5a;
     --color-whatsapp-3: #1da851;
@@ -384,6 +385,148 @@ body::before {
 }
 
 
+/* ================== PREGUNTAS FRECUENTES ================== */
+/* Acordeón con <details>: se abre y cierra sin JavaScript y funciona con teclado y lectores de pantalla.
+   Mismo fondo que el preloader y el menú, letras blancas */
+.faq {
+    background: var(--color-oscuro);
+    color: var(--color-blanco);
+    padding: 90px 20px;
+}
+
+.faq-contenedor {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.faq-etiqueta {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--color-celeste);
+    margin-bottom: 10px;
+}
+
+.faq h2 {
+    text-align: center;
+    font-size: 40px;
+    line-height: 1.2;
+    color: var(--color-blanco);
+    margin-bottom: 12px;
+}
+
+.faq-intro {
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.72);
+    margin-bottom: 40px;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.faq-item:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.faq-pregunta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    min-height: 44px;
+    padding: 20px 4px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    cursor: pointer;
+    list-style: none; /* sin el triángulo del navegador */
+    -webkit-tap-highlight-color: transparent;
+}
+
+.faq-pregunta::-webkit-details-marker {
+    display: none; /* sin el triángulo en Safari */
+}
+
+/* Signo "+" a la derecha: gira y se vuelve "×" al abrir */
+.faq-pregunta::after {
+    content: "+";
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.faq-item[open] .faq-pregunta::after {
+    transform: rotate(45deg);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.faq-pregunta:hover {
+    color: var(--color-celeste);
+}
+
+.faq-pregunta:focus-visible {
+    outline: 2px solid var(--color-celeste);
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+.faq-respuesta {
+    padding: 0 52px 22px 4px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.8);
+    animation: faq-aparecer 0.25s ease;
+}
+
+@keyframes faq-aparecer {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* "¿Tienes otra pregunta?" + botón de WhatsApp */
+.faq-mas {
+    margin-top: 44px;
+    text-align: center;
+}
+
+.faq-mas p {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 14px;
+}
+
+.faq-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 28px;
+    border-radius: var(--radio-pildora);
+    background: var(--color-whatsapp);
+    color: var(--color-blanco);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.faq-boton:hover {
+    background: var(--color-whatsapp-3);
+}
+
+
 /* ================== FOOTER ================== */
 /* PC: todo en una fila centrada. Celular y tablet: todo a la izquierda, como el menú hamburguesa */
 .footer {
@@ -452,6 +595,24 @@ body::before {
 
 /* TABLETS EN VERTICAL Y CELULARES */
 @media (max-width: 768px) {
+    /* Preguntas frecuentes */
+    .faq {
+        padding: 70px 20px;
+    }
+
+    .faq h2 {
+        font-size: 32px;
+    }
+
+    .faq-intro {
+        font-size: 16px;
+        margin-bottom: 32px;
+    }
+
+    .faq-pregunta {
+        font-size: 17px;
+    }
+
     /* Formulario: datos y formulario uno debajo del otro, un campo por fila, botón a todo el ancho */
     .contact-section {
         flex-direction: column;
@@ -561,5 +722,53 @@ body::before {
 @media (hover: none) and (pointer: coarse) and (max-width: 768px) {
     .footer a {
         padding: 0;
+    }
+}
+
+/* CELULARES: preguntas frecuentes más compactas, la respuesta usa todo el ancho */
+@media (max-width: 480px) {
+    .faq {
+        padding: 56px 16px;
+    }
+
+    .faq h2 {
+        font-size: 28px;
+    }
+
+    .faq-pregunta {
+        font-size: 16px;
+        padding: 18px 0;
+        gap: 14px;
+    }
+
+    .faq-pregunta::after {
+        width: 28px;
+        height: 28px;
+    }
+
+    .faq-respuesta {
+        padding: 0 0 20px;
+        font-size: 15px;
+    }
+
+    .faq-boton {
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .faq h2 {
+        font-size: 25px;
+    }
+}
+
+/* Sin animaciones para quien las tiene desactivadas en su teléfono */
+@media (prefers-reduced-motion: reduce) {
+    .faq-respuesta {
+        animation: none;
+    }
+
+    .faq-pregunta::after {
+        transition: none;
     }
 }
