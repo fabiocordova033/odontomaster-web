@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://DOMINIO-PENDIENTE/sitemap.xml
+Sitemap: https://clinicaodontomaster.com/sitemap.xml
