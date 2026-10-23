@@ -81,7 +81,20 @@ if (input && typeof window.intlTelInput === "function") window.intlTelInput(inpu
 // ✅ Inicializa EmailJS
 
 (function() {
-    if (window.emailjs) emailjs.init("gG5IGnoQ3-VQm8HTM");
+    if (window.emailjs) emailjs.init({
+        publicKey: "gG5IGnoQ3-VQm8HTM",
+        // 🛡️ Rechaza los envíos de navegadores controlados por programas (bots)
+        blockHeadless: true,
+        // 🛡️ Máximo un intento de envío cada 30 segundos, contando todas las páginas de la web
+        limitRate: { id: "odm-formulario", throttle: 30000 },
+        // Dónde guarda EmailJS la hora del último intento. Hay que indicarlo: en la versión 4.4.1,
+        // init() sin esta opción borra el almacenamiento por defecto y el límite no funciona.
+        storageProvider: {
+            get: (clave) => { try { return Promise.resolve(localStorage.getItem(clave)); } catch (e) { return Promise.resolve(null); } },
+            set: (clave, valor) => { try { localStorage.setItem(clave, valor); } catch (e) { /* sin almacenamiento */ } return Promise.resolve(); },
+            remove: (clave) => { try { localStorage.removeItem(clave); } catch (e) { /* sin almacenamiento */ } return Promise.resolve(); },
+        },
+    });
 })();
 
 // Manejar envío del formulario
@@ -190,7 +203,15 @@ if (contactForm) contactForm.addEventListener("submit", function(event) {
         .catch(function(error) {
             // ❌ ERROR
             console.error("❌ Error al enviar:", error);
-            mostrar("❌ Error al enviar. Intenta de nuevo o escríbenos por WhatsApp.", "red");
+            if (error && error.status === 429) {
+                // Límite de EmailJS: otro intento de envío hace menos de 30 segundos
+                mostrar("⏳ Espera unos segundos antes de volver a enviar.", "#b45309");
+            } else if (error && error.status === 451) {
+                // Navegador automático (bot) o sin idioma configurado
+                mostrar("❌ No se pudo enviar desde este navegador. Escríbenos por WhatsApp al +51 910 840 567.", "red");
+            } else {
+                mostrar("❌ Error al enviar. Intenta de nuevo o escríbenos por WhatsApp.", "red");
+            }
 
             // Restaurar botón
             submitBtn.disabled = false;
