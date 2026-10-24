@@ -39,27 +39,84 @@ if (slides.length > 0) {
 
 
 
-const container = document.querySelector(".testimonial-cards");
+// TESTIMONIOS: carrusel deslizable (solo en el inicio). Se desliza con el dedo, con las flechas o
+// con los puntos, y avanza solo cada 6 s. El avance automático se detiene mientras la persona
+// interactúa, si la pestaña no está visible o si tiene las animaciones desactivadas.
+const carrusel = document.querySelector(".testimonios-carrusel");
 
-// Solo el inicio tiene testimonios: en las demás páginas no se ejecuta
-if (container) setInterval(() => {
+if (carrusel) {
+    const pista = carrusel.querySelector(".testimonios-pista");
+    const contenedorPuntos = document.querySelector(".testimonios-puntos");
+    const sinAnimaciones = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const tarjetas = () => [...pista.querySelectorAll(".testimonio:not([hidden])")];
 
-    // mover primera tarjeta al final
-    container.appendChild(container.firstElementChild);
+    // Distancia de una tarjeta a la siguiente
+    const paso = () => {
+        const t = tarjetas();
+        return t.length > 1 ? t[1].offsetLeft - t[0].offsetLeft : pista.clientWidth;
+    };
+    const maximo = () => pista.scrollWidth - pista.clientWidth;
+    const posiciones = () => Math.max(1, Math.round(maximo() / paso()) + 1);
+    const actual = () => Math.min(posiciones() - 1, Math.round(pista.scrollLeft / paso()));
+    const ir = (i) => pista.scrollTo({ left: Math.min(i * paso(), maximo()), behavior: sinAnimaciones ? "auto" : "smooth" });
 
-    // quitar active a todas
-    document.querySelectorAll(".testimonial").forEach(card => {
-        card.classList.remove("active");
+    // Al llegar al final vuelve al inicio (y al revés)
+    const mover = (dir) => {
+        const total = posiciones();
+        ir((actual() + dir + total) % total);
+    };
+
+    carrusel.querySelector(".testimonios-anterior").addEventListener("click", () => mover(-1));
+    carrusel.querySelector(".testimonios-siguiente").addEventListener("click", () => mover(1));
+
+    // Puntos: uno por cada posición posible
+    function armarPuntos() {
+        const total = posiciones();
+        carrusel.classList.toggle("sin-desplazar", maximo() < 5);
+        contenedorPuntos.hidden = total < 2;
+        contenedorPuntos.replaceChildren(...Array.from({ length: total }, (_, i) => {
+            const punto = document.createElement("button");
+            punto.type = "button";
+            punto.tabIndex = -1; // con teclado se usan las flechas
+            punto.addEventListener("click", () => ir(i));
+            return punto;
+        }));
+        marcarPunto();
+    }
+    function marcarPunto() {
+        const i = actual();
+        [...contenedorPuntos.children].forEach((p, j) => p.classList.toggle("activo", i === j));
+    }
+    pista.addEventListener("scroll", () => requestAnimationFrame(marcarPunto), { passive: true });
+    window.addEventListener("resize", armarPuntos);
+    window.addEventListener("load", armarPuntos); // con la tipografía y las imágenes ya cargadas
+    armarPuntos();
+
+    // Teclado: flechas izquierda/derecha cuando la pista tiene el foco
+    pista.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") { e.preventDefault(); mover(1); }
+        if (e.key === "ArrowLeft") { e.preventDefault(); mover(-1); }
     });
 
-    // poner active a la del centro
-    const cards = document.querySelectorAll(".testimonial");
+    // Avance automático
+    let pausado = false;
+    const pausar = () => { pausado = true; };
+    const seguir = () => { pausado = false; };
+    carrusel.addEventListener("mouseenter", pausar);
+    carrusel.addEventListener("mouseleave", seguir);
+    carrusel.addEventListener("focusin", pausar);
+    carrusel.addEventListener("focusout", seguir);
+    // En celular, tras tocar o deslizar, espera un rato antes de seguir solo
+    let reanudar;
+    pista.addEventListener("touchstart", () => { pausar(); clearTimeout(reanudar); }, { passive: true });
+    pista.addEventListener("touchend", () => { clearTimeout(reanudar); reanudar = setTimeout(seguir, 8000); }, { passive: true });
 
-    if(cards[1]){
-        cards[1].classList.add("active");
+    if (!sinAnimaciones) {
+        setInterval(() => {
+            if (!pausado && !document.hidden && posiciones() > 1) mover(1);
+        }, 6000);
     }
-
-}, 3000);
+}
 
 const input = document.querySelector("#telefono");
 

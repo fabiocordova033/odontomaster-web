@@ -140,11 +140,11 @@
       }
     </script>
     <link rel="preload" href="/fuentes/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/css/general.css?v=20261024b" />
-    <link rel="stylesheet" href="/css/styles.css?v=20261024b" />
-    <link rel="stylesheet" href="/css/selector.css?v=20261024b" />
-    <link rel="stylesheet" href="/css/menu.css?v=20261024b" />
-    <link rel="stylesheet" href="/css/cookies.css?v=20261024b" />
+    <link rel="stylesheet" href="/css/general.css?v=20261024c" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261024c" />
+    <link rel="stylesheet" href="/css/selector.css?v=20261024c" />
+    <link rel="stylesheet" href="/css/menu.css?v=20261024c" />
+    <link rel="stylesheet" href="/css/cookies.css?v=20261024c" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css" integrity="sha384-dtmSEPuKDExMe4jB/GN1CLwChZhgGsg8FrOtj405iysBoklNdIsyVGDeWutzRVCC" crossorigin="anonymous" />
     <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32.png" />
     <link rel="apple-touch-icon" href="/imagenes/apple-touch-icon.png" />
@@ -285,34 +285,99 @@
     <!-- ARTICLES Eleminado-->
 
 
-    <!-- TESTIMONIOS -->
-    <section class="testimonials">
-      <h2>Testimonios</h2>
-      <br>
-      <div class="testimonial-cards">
-        <div class="testimonial">
-          <h4>Maria García ⭐⭐⭐⭐⭐</h4>
-          <p>
-            Excelente atención, el doctor fue muy profesional y me explicó todo
-            el tratamiento.
-          </p>
+    <!-- TESTIMONIOS: carrusel deslizable (scripts/script.js). Usa solo comentarios reales de pacientes, con su permiso -->
+    <section class="testimonios" aria-labelledby="testimonios-titulo">
+      <p class="testimonios-etiqueta">OPINIONES DE PACIENTES</p>
+      <h2 id="testimonios-titulo">Lo que dicen nuestros pacientes</h2>
+      <p class="testimonios-intro">La confianza de quienes ya sonríen con nosotros es nuestro mejor resultado.</p>
+
+      <div class="testimonios-carrusel">
+        <button type="button" class="testimonios-flecha testimonios-anterior" aria-label="Testimonio anterior">‹</button>
+
+        <div class="testimonios-pista" tabindex="0" aria-label="Testimonios de pacientes">
+          <article class="testimonio">
+            <p class="testimonio-estrellas" aria-label="5 de 5 estrellas"><span aria-hidden="true">★★★★★</span></p>
+            <p class="testimonio-texto">Excelente atención, el doctor fue muy profesional y me explicó todo el tratamiento.</p>
+            <div class="testimonio-autor">
+              <span class="testimonio-avatar" aria-hidden="true">MG</span>
+              <div>
+                <p class="testimonio-nombre">María García</p>
+                <p class="testimonio-tratamiento">Paciente de Odontomaster</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonio">
+            <p class="testimonio-estrellas" aria-label="5 de 5 estrellas"><span aria-hidden="true">★★★★★</span></p>
+            <p class="testimonio-texto">Me hice una limpieza dental y quedé muy satisfecho, todo fue rápido y sin molestias.</p>
+            <div class="testimonio-autor">
+              <span class="testimonio-avatar" aria-hidden="true">CR</span>
+              <div>
+                <p class="testimonio-nombre">Carlos Ramírez</p>
+                <p class="testimonio-tratamiento">Limpieza dental</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonio">
+            <p class="testimonio-estrellas" aria-label="5 de 5 estrellas"><span aria-hidden="true">★★★★★</span></p>
+            <p class="testimonio-texto">Ahora puedo sonreír con confianza gracias al tratamiento que recibí.</p>
+            <div class="testimonio-autor">
+              <span class="testimonio-avatar" aria-hidden="true">AJ</span>
+              <div>
+                <p class="testimonio-nombre">Andrea Jiménez</p>
+                <p class="testimonio-tratamiento">Paciente de Odontomaster</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- TESTIMONIO 4 (pendiente): escribe el comentario, el nombre, las iniciales y el tratamiento
+               reales del paciente (con su permiso) y borra la palabra "hidden" para que se muestre -->
+          <article class="testimonio" hidden>
+            <p class="testimonio-estrellas" aria-label="5 de 5 estrellas"><span aria-hidden="true">★★★★★</span></p>
+            <p class="testimonio-texto">Comentario del paciente.</p>
+            <div class="testimonio-autor">
+              <span class="testimonio-avatar" aria-hidden="true">NP</span>
+              <div>
+                <p class="testimonio-nombre">Nombre del paciente</p>
+                <p class="testimonio-tratamiento">Tratamiento</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- TESTIMONIO 5 (pendiente): escribe el comentario, el nombre, las iniciales y el tratamiento
+               reales del paciente (con su permiso) y borra la palabra "hidden" para que se muestre -->
+          <article class="testimonio" hidden>
+            <p class="testimonio-estrellas" aria-label="5 de 5 estrellas"><span aria-hidden="true">★★★★★</span></p>
+            <p class="testimonio-texto">Comentario del paciente.</p>
+            <div class="testimonio-autor">
+              <span class="testimonio-avatar" aria-hidden="true">NP</span>
+              <div>
+                <p class="testimonio-nombre">Nombre del paciente</p>
+                <p class="testimonio-tratamiento">Tratamiento</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- TESTIMONIO 6 (pendiente): escribe el comentario, el nombre, las iniciales y el tratamiento
+               reales del paciente (con su permiso) y borra la palabra "hidden" para que se muestre -->
+          <article class="testimonio" hidden>
+            <p class="testimonio-estrellas" aria-label="5 de 5 estrellas"><span aria-hidden="true">★★★★★</span></p>
+            <p class="testimonio-texto">Comentario del paciente.</p>
+            <div class="testimonio-autor">
+              <span class="testimonio-avatar" aria-hidden="true">NP</span>
+              <div>
+                <p class="testimonio-nombre">Nombre del paciente</p>
+                <p class="testimonio-tratamiento">Tratamiento</p>
+              </div>
+            </div>
+          </article>
         </div>
 
-        <div class="testimonial">
-          <h4>Carlos Ramirez ⭐⭐⭐⭐⭐</h4>
-          <p>
-            Me hice una limpieza dental y quedé muy satisfecho, todo fue rápido
-            y sin molestias.
-          </p>
-        </div>
-
-        <div class="testimonial">
-          <h4>Andrea Jimenez ⭐⭐⭐⭐⭐</h4>
-          <p>
-            Ahora puedo sonreír con confianza gracias al tratamiento que recibí.
-          </p>
-        </div>
+        <button type="button" class="testimonios-flecha testimonios-siguiente" aria-label="Testimonio siguiente">›</button>
       </div>
+
+      <div class="testimonios-puntos" aria-hidden="true"></div>
     </section>
 
     <!-- NUESTRO EQUIPO -->
@@ -522,9 +587,9 @@
     </a>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js" integrity="sha384-nv67vFdfHkxUBLSrw9GmwRuKfHtJ1BL12/S9/m4xPtZQmWW7cfu01o3Mxc32GUQx" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
-    <script src="/scripts/selector.js?v=20261024b"></script>
-    <script src="scripts/script.js?v=20261024b"></script>
-    <script src="/scripts/menu.js?v=20261024b"></script>
-    <script src="/scripts/cookies.js?v=20261024b"></script>
+    <script src="/scripts/selector.js?v=20261024c"></script>
+    <script src="scripts/script.js?v=20261024c"></script>
+    <script src="/scripts/menu.js?v=20261024c"></script>
+    <script src="/scripts/cookies.js?v=20261024c"></script>
   </body>
 </html>
