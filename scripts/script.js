@@ -220,13 +220,67 @@ if (contactForm) contactForm.addEventListener("submit", function(event) {
 });
 
 
-// Botón "¿Cómo llegar?": abre Waze en otra pestaña y, si en 2 segundos no se abrió
-// (por ejemplo, sin la app), lleva a Google Maps. Antes estaba como onclick en el HTML.
-document.querySelectorAll(".btn-map[data-respaldo]").forEach((boton) => {
-    boton.addEventListener("click", () => {
-        setTimeout(() => {
-            window.location.href = boton.dataset.respaldo;
-        }, 2000);
+// Botón "¿Cómo llegar?": abre Waze si el celular lo tiene; si no, Google Maps.
+// - Android: Chrome abre Waze si está instalado y, si no, va solo a Google Maps (intent con respaldo).
+// - iPhone: se intenta abrir Waze. Si la app se abre, la página pasa a segundo plano y no se hace nada más.
+//   Si no está instalada (Safari muestra "no se puede abrir la página") o la persona cancela,
+//   se va a Google Maps. Si en 2,5 s no pasa nada, también.
+// - PC u otros: el enlace normal del botón (Google Maps en otra pestaña), sin JavaScript.
+const esAndroid = /Android/i.test(navigator.userAgent);
+const esIPhone = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1); // iPad con iPadOS
+
+document.querySelectorAll(".btn-map[data-lat]").forEach((boton) => {
+    boton.addEventListener("click", (e) => {
+        if (!esAndroid && !esIPhone) return; // PC: abre Google Maps con el enlace del botón
+
+        e.preventDefault();
+        const destino = boton.dataset.lat + "," + boton.dataset.lng;
+        const googleMaps = boton.href;
+
+        if (esAndroid) {
+            window.location.href = "intent://?ll=" + destino + "&navigate=yes" +
+                "#Intent;scheme=waze;package=com.waze;S.browser_fallback_url=" +
+                encodeURIComponent(googleMaps) + ";end";
+            return;
+        }
+
+        // iPhone
+        let terminado = false;
+        let temporizador;
+        const irAGoogleMaps = () => {
+            if (terminado || document.hidden) return;
+            terminado = true;
+            limpiar();
+            window.location.href = googleMaps;
+        };
+        const seAbrioWaze = () => {
+            if (!document.hidden) return;
+            terminado = true;
+            limpiar();
+        };
+        const saleDeLaPagina = () => {
+            terminado = true;
+            limpiar();
+        };
+        // Safari muestra un aviso (abrir en Waze / no se puede abrir): mientras está en pantalla se espera;
+        // al cerrarlo, si Waze no se abrió, se va a Google Maps
+        const alMostrarAviso = () => clearTimeout(temporizador);
+        const alCerrarAviso = () => setTimeout(irAGoogleMaps, 300);
+        function limpiar() {
+            clearTimeout(temporizador);
+            document.removeEventListener("visibilitychange", seAbrioWaze);
+            window.removeEventListener("pagehide", saleDeLaPagina);
+            window.removeEventListener("blur", alMostrarAviso);
+            window.removeEventListener("focus", alCerrarAviso);
+        }
+        document.addEventListener("visibilitychange", seAbrioWaze);
+        window.addEventListener("pagehide", saleDeLaPagina);
+        window.addEventListener("blur", alMostrarAviso);
+        window.addEventListener("focus", alCerrarAviso);
+
+        temporizador = setTimeout(irAGoogleMaps, 2500);
+        window.location.href = "waze://?ll=" + destino + "&navigate=yes";
     });
 });
 
