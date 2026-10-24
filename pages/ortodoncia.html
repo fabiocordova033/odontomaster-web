@@ -20,14 +20,55 @@
     <meta property="og:image:alt" content="Ortodoncia con brackets en Odontomaster" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preload" href="/fuentes/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/css/general.css?v=20261023" />
-    <link rel="stylesheet" href="/css/servicios-especificos.css?v=20261023" />
-    <link rel="stylesheet" href="/css/selector.css?v=20261023" />
-    <link rel="stylesheet" href="/css/menu.css?v=20261023" />
-    <link rel="stylesheet" href="/css/cookies.css?v=20261023" />
+    <link rel="stylesheet" href="/css/general.css?v=20261024" />
+    <link rel="stylesheet" href="/css/servicios-especificos.css?v=20261024" />
+    <link rel="stylesheet" href="/css/selector.css?v=20261024" />
+    <link rel="stylesheet" href="/css/menu.css?v=20261024" />
+    <link rel="stylesheet" href="/css/cookies.css?v=20261024" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css" integrity="sha384-dtmSEPuKDExMe4jB/GN1CLwChZhgGsg8FrOtj405iysBoklNdIsyVGDeWutzRVCC" crossorigin="anonymous" />
     <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32.png" />
     <link rel="apple-touch-icon" href="/imagenes/apple-touch-icon.png" />
+    <!-- Datos estructurados para Google: preguntas frecuentes (deben coincidir con la sección visible) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿A qué edad se puede usar ortodoncia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A cualquier edad, si los dientes y las encías están sanos. En niños se recomienda una primera evaluación alrededor de los 7 años."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué tipos de brackets hay?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Metálicos, estéticos (de cerámica o zafiro, del color del diente) y linguales, que van por detrás de los dientes. También existe la ortodoncia invisible con alineadores transparentes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué pasa cuando termina el tratamiento?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Se usan retenedores, fijos o removibles, para que los dientes no vuelvan a moverse. Son una parte muy importante del tratamiento."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué cuidados hay que tener con brackets?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cepíllate con cuidado después de cada comida, usa cepillos interdentales y evita alimentos muy duros o pegajosos, que pueden despegar los brackets."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <!-- PRELOADER -->
@@ -114,6 +155,39 @@
         </div>
       </div>
     </section>
+    <!-- PREGUNTAS FRECUENTES (los mismos textos están en los datos para Google del <head>) -->
+    <section class="faq" id="preguntas-frecuentes" aria-labelledby="faq-titulo">
+      <div class="faq-contenedor">
+        <p class="faq-etiqueta">RESOLVEMOS TUS DUDAS</p>
+        <h2 id="faq-titulo">Preguntas frecuentes sobre la ortodoncia</h2>
+        <p class="faq-intro">Lo que más nos preguntan los pacientes sobre este tratamiento.</p>
+
+        <div class="faq-lista">
+          <details class="faq-item">
+            <summary class="faq-pregunta">¿A qué edad se puede usar ortodoncia?</summary>
+            <p class="faq-respuesta">A cualquier edad, si los dientes y las encías están sanos. En niños se recomienda una primera evaluación alrededor de los 7 años.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-pregunta">¿Qué tipos de brackets hay?</summary>
+            <p class="faq-respuesta">Metálicos, estéticos (de cerámica o zafiro, del color del diente) y linguales, que van por detrás de los dientes. También existe la ortodoncia invisible con alineadores transparentes.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-pregunta">¿Qué pasa cuando termina el tratamiento?</summary>
+            <p class="faq-respuesta">Se usan retenedores, fijos o removibles, para que los dientes no vuelvan a moverse. Son una parte muy importante del tratamiento.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-pregunta">¿Qué cuidados hay que tener con brackets?</summary>
+            <p class="faq-respuesta">Cepíllate con cuidado después de cada comida, usa cepillos interdentales y evita alimentos muy duros o pegajosos, que pueden despegar los brackets.</p>
+          </details>
+        </div>
+
+        <div class="faq-mas">
+          <p>¿Tienes otra pregunta?</p>
+          <a href="https://wa.me/51973791164" target="_blank" rel="noopener noreferrer" class="faq-boton">Escríbenos por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
         <!-- FORMULARIO -->
     <div class ="contact-container">
     <section class="contact-section" id="contacto">
@@ -235,9 +309,9 @@
     </a>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js" integrity="sha384-nv67vFdfHkxUBLSrw9GmwRuKfHtJ1BL12/S9/m4xPtZQmWW7cfu01o3Mxc32GUQx" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
-    <script src="/scripts/selector.js?v=20261023"></script>
-    <script src="/scripts/script.js?v=20261023"></script>
-    <script src="/scripts/menu.js?v=20261023"></script>
-    <script src="/scripts/cookies.js?v=20261023"></script>
+    <script src="/scripts/selector.js?v=20261024"></script>
+    <script src="/scripts/script.js?v=20261024"></script>
+    <script src="/scripts/menu.js?v=20261024"></script>
+    <script src="/scripts/cookies.js?v=20261024"></script>
   </body>
 </html>

@@ -7,23 +7,6 @@
     padding: 110px 40px 90px; /* 110px arriba: espacio para el navbar fijo */
 }
 
-/* ================== TARJETAS ================== */
-.tarjeta {
-    background: rgba(255, 255, 255, 0.96);
-    border-radius: var(--radio-tarjeta);
-    box-shadow: var(--sombra-tarjeta);
-}
-
-/* Texto pequeño en mayúsculas encima del título ("CLÍNICA", "NUESTRO EQUIPO") */
-.tarjeta-etiqueta {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    color: var(--color-acento);
-}
-
 /* ================== LA CLÍNICA: RESUMEN, MISIÓN Y VISIÓN ================== */
 .nosotros-contenedor {
     max-width: 1000px;
@@ -260,10 +243,6 @@
 @media (max-width: 480px) {
     .about-team {
         padding: 90px 16px 48px;
-    }
-
-    .tarjeta {
-        border-radius: 16px;
     }
 
     .tarjeta-resumen {

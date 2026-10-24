@@ -41,11 +41,11 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preload" href="/fuentes/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/css/general.css?v=20261023" />
-    <link rel="stylesheet" href="/css/doctor-profile.css?v=20261023" />
-    <link rel="stylesheet" href="/css/selector.css?v=20261023" />
-    <link rel="stylesheet" href="/css/menu.css?v=20261023" />
-    <link rel="stylesheet" href="/css/cookies.css?v=20261023" />
+    <link rel="stylesheet" href="/css/general.css?v=20261024" />
+    <link rel="stylesheet" href="/css/doctor-profile.css?v=20261024" />
+    <link rel="stylesheet" href="/css/selector.css?v=20261024" />
+    <link rel="stylesheet" href="/css/menu.css?v=20261024" />
+    <link rel="stylesheet" href="/css/cookies.css?v=20261024" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css" integrity="sha384-dtmSEPuKDExMe4jB/GN1CLwChZhgGsg8FrOtj405iysBoklNdIsyVGDeWutzRVCC" crossorigin="anonymous" />
     <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32.png" />
     <link rel="apple-touch-icon" href="/imagenes/apple-touch-icon.png" />
@@ -84,102 +84,65 @@
     <!-- DOCTOR PROFILE -->
     <!-- ========================= -->
 
-    <section class="doctor-profile">
-      <!-- COLUMNA IZQUIERDA -->
-      <div class="doctor-left">
-        <div class="doctor-image">
+    <div class="perfil-doctor">
+      <!-- ================== PERFIL ================== -->
+      <section class="tarjeta perfil-tarjeta">
+        <div class="perfil-foto">
           <img src="/imagenes/chichobelo.webp" alt="Dr. Gianfranco Robles" />
         </div>
-      </div>
 
-      <!-- COLUMNA DERECHA -->
-      <div class="doctor-right">
-        <span class="doctor-location"></span>
+        <div class="perfil-info">
+          <span class="tarjeta-etiqueta">ODONTÓLOGO ESPECIALISTA</span>
+          <h1>Dr. Gianfranco Robles</h1>
+          <p class="perfil-especialidad">Implantología, Rehabilitación Oral y Periodoncia</p>
+          <p class="perfil-descripcion">
+            Odontólogo Especialista en Implantología, Rehabilitación Oral y Periodoncia. Más de 27 años de experiencia en colocación y rehabilitación de implantes, procedimientos de regeneración ósea, elevación de piso de seno maxilar y manejo de tejidos periodontales. Conferencista nacional e internacional en implantología oral y docente de grupos internacionales especializados en colocación de implantes y regeneración ósea.
+          </p>
 
-        <h1>
-          Dr. Gianfranco Robles. | Implantología, Rehabilitación Oral y
-          Periodoncia
-        </h1>
-
-        <div class="doctor-line"></div>
-
-        <p class="doctor-description">
-          Odontólogo Especialista en Implantología, Rehabilitación Oral y
-          Periodoncia. Más de 27 años de experiencia en colocación y
-          rehabilitación de implantes, procedimientos de regeneración ósea,
-          elevación de piso de seno maxilar y manejo de tejidos periodontales.
-          Conferencista nacional e internacional en implantología oral y docente
-          de grupos internacionales especializados en colocación de implantes y
-          regeneración ósea.
-        </p>
-      </div>
-    </section>
-
-    <!-- ========================= -->
-    <!-- ESTUDIOS -->
-    <!-- ========================= -->
-
-    <section class="doctor-studies">
-      <h2>ESTUDIOS REALIZADOS</h2>
-
-      <!-- TIMELINE -->
-      <div class="timeline">
-        <!-- ITEM -->
-        <div class="timeline-item">
-          <div class="timeline-year">1984</div>
-
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-content">
-            <h3>UNIVERSITARIOS</h3>
-
-            <p>Odontólogo General - Escuela Colombiana de Medicina.</p>
+          <div class="perfil-botones">
+            <a href="#contacto" class="perfil-btn perfil-btn-principal">Reservar cita</a>
+            <a href="/pages/team.html#doctores" class="perfil-btn">Ver el equipo</a>
           </div>
         </div>
+      </section>
 
-        <!-- ITEM -->
-        <div class="timeline-item">
-          <div class="timeline-year">1993</div>
+      <!-- ================== ESTUDIOS ================== -->
+      <section class="tarjeta perfil-estudios">
+        <span class="tarjeta-etiqueta">FORMACIÓN</span>
+        <h2>Estudios realizados</h2>
 
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-content">
-            <h3>ESPECIALIDAD</h3>
-
-            <p>Prótesis Periodontal - Universidad Central de Venezuela.</p>
-          </div>
-        </div>
-
-        <!-- ITEM -->
-        <div class="timeline-item">
-          <div class="timeline-year">2009</div>
-
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-content">
-            <h3>IMPLANTOLOGÍA</h3>
-
-            <p>Advanced Implant Dentistry - University of Tel-Aviv.</p>
-          </div>
-        </div>
-
-        <!-- ITEM -->
-        <div class="timeline-item">
-          <div class="timeline-year">2017</div>
-
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-content">
-            <h3>MÁSTER</h3>
-
-            <p>
-              Clinician Program in Implant Dentistry - Universidad de
-              California.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <ol class="timeline">
+          <li class="timeline-item">
+            <span class="timeline-year">1984</span>
+            <div class="timeline-content">
+              <h3>Universitarios</h3>
+              <p>Odontólogo General - Escuela Colombiana de Medicina.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-year">1993</span>
+            <div class="timeline-content">
+              <h3>Especialidad</h3>
+              <p>Prótesis Periodontal - Universidad Central de Venezuela.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-year">2009</span>
+            <div class="timeline-content">
+              <h3>Implantología</h3>
+              <p>Advanced Implant Dentistry - University of Tel-Aviv.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-year">2017</span>
+            <div class="timeline-content">
+              <h3>Máster</h3>
+              <p>Clinician Program in Implant Dentistry - Universidad de California.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </div>
 
     <!-- FORMULARIO -->
     <div class ="contact-container">
@@ -302,10 +265,10 @@
     </a>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js" integrity="sha384-nv67vFdfHkxUBLSrw9GmwRuKfHtJ1BL12/S9/m4xPtZQmWW7cfu01o3Mxc32GUQx" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
-    <script src="/scripts/selector.js?v=20261023"></script>
-    <script src="/scripts/script.js?v=20261023"></script>
-    <script src="/scripts/preloader.js?v=20261023"></script>
-    <script src="/scripts/menu.js?v=20261023"></script>
-    <script src="/scripts/cookies.js?v=20261023"></script>
+    <script src="/scripts/selector.js?v=20261024"></script>
+    <script src="/scripts/script.js?v=20261024"></script>
+    <script src="/scripts/preloader.js?v=20261024"></script>
+    <script src="/scripts/menu.js?v=20261024"></script>
+    <script src="/scripts/cookies.js?v=20261024"></script>
   </body>
 </html>

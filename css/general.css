@@ -385,6 +385,24 @@ body::before {
 }
 
 
+/* ================== TARJETAS (Nosotros, perfiles de los doctores) ================== */
+.tarjeta {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: var(--radio-tarjeta);
+    box-shadow: var(--sombra-tarjeta);
+}
+
+/* Texto pequeño en mayúsculas encima del título ("CLÍNICA", "NUESTRO EQUIPO") */
+.tarjeta-etiqueta {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--color-acento);
+}
+
+
 /* ================== PREGUNTAS FRECUENTES ================== */
 /* Acordeón con <details>: se abre y cierra sin JavaScript y funciona con teclado y lectores de pantalla.
    Mismo fondo que el preloader y el menú, letras blancas */
@@ -725,8 +743,12 @@ body::before {
     }
 }
 
-/* CELULARES: preguntas frecuentes más compactas, la respuesta usa todo el ancho */
+/* CELULARES: tarjetas con bordes algo menores; preguntas frecuentes más compactas */
 @media (max-width: 480px) {
+    .tarjeta {
+        border-radius: 16px;
+    }
+
     .faq {
         padding: 56px 16px;
     }
